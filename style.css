@@ -9,7 +9,7 @@ body {
 header {
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0 0 0;
 }
 
 header h1 {
@@ -20,8 +20,8 @@ header h1 {
 section {
     background-color: turquoise;
     width: 100%;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .project {
