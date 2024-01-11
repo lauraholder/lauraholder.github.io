@@ -1,2 +1,2 @@
 # lauraholder.github.io
-Product Experience Design Director + Designer
+Laura is a Product Experience Designer + Design Director + Team Manager + UX and Product Writer in Brooklyn, New York
