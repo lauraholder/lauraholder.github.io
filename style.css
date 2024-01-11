@@ -1,8 +1,8 @@
 body {
     font-family: 'Helvetica, Times New Roman', sans-serif;
-    margin: 12;
-    padding: 12;
-    font-size: 15px;
+    margin: 22;
+    padding: 22;
+    font-size: 18px;
 }
 
 header {
@@ -19,7 +19,7 @@ header h1 {
 
 section {
     background-color: #9052fc;
-    max-width: 800px;
+   // max-width: 800px;
     margin: 20px auto;
     padding: 0 20px;
 }
