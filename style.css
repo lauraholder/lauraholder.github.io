@@ -28,6 +28,18 @@ section {
     margin-bottom: 40px;
 }
 
+.project1 {
+    background-color: red;
+}
+
+.project2 {
+    background-color: purple;
+}
+
+.project3 {
+    background-color: orange;
+}
+
 .project img {
     max-width: 100%;
     height: auto;
