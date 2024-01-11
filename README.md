@@ -1,2 +1,2 @@
 # lauraholder.github.io
-News and Information Design
+Product Experience Design Director + Designer
