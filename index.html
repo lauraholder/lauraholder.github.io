@@ -9,24 +9,21 @@
   <meta property="og:title" content="Laura T Holder">
   <meta property="og:description" content="Product design, design leadership, publishing platforms, and editorial systems.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#f7f3eb">
+  <meta name="theme-color" content="#f3f0e7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
-      --paper: #f7f3eb;
-      --ink: #161514;
-      --soft-ink: #4d4943;
-      --quiet: #7a746a;
-      --hairline: rgba(22, 21, 20, 0.18);
-      --wash: #ede4d6;
-      --green: #52624c;
-      --red: #bb4939;
-      --blue: #2f5870;
-      --gold: #a5792f;
-      --white: #fffaf2;
+      --paper: #f3f0e7;
+      --ink: #11100e;
+      --soft-ink: #44413b;
+      --quiet: #706b61;
+      --hairline: rgba(17, 16, 14, 0.18);
+      --grid: rgba(17, 16, 14, 0.055);
+      --accent: #d6ff3f;
+      --white: #fffdf7;
     }
 
     * {
@@ -43,27 +40,28 @@
       color: var(--ink);
       font-family: Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
       background:
-        linear-gradient(90deg, transparent 0 calc(100% - 1px), rgba(22, 21, 20, 0.06) calc(100% - 1px)) 0 0 / 22px 22px,
-        linear-gradient(180deg, transparent 0 calc(100% - 1px), rgba(22, 21, 20, 0.045) calc(100% - 1px)) 0 0 / 22px 22px,
+        linear-gradient(90deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
+        linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
         var(--paper);
       overflow-x: hidden;
     }
 
     a {
       color: inherit;
-      text-decoration-color: rgba(22, 21, 20, 0.38);
+      text-decoration-color: rgba(17, 16, 14, 0.42);
       text-decoration-thickness: 0.06em;
       text-underline-offset: 0.2em;
       transition: color 160ms ease, text-decoration-color 160ms ease;
     }
 
     a:hover {
-      color: var(--red);
+      color: var(--ink);
       text-decoration-color: currentColor;
+      background: linear-gradient(transparent 58%, var(--accent) 58%);
     }
 
     a:focus-visible {
-      outline: 3px solid rgba(187, 73, 57, 0.42);
+      outline: 3px solid rgba(214, 255, 63, 0.9);
       outline-offset: 4px;
     }
 
@@ -79,7 +77,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 32px;
-      border-bottom: 1px solid var(--hairline);
+      border-bottom: 2px solid var(--ink);
       padding-bottom: 22px;
     }
 
@@ -100,10 +98,11 @@
       place-items: center;
       width: 44px;
       height: 44px;
-      border: 1px solid var(--ink);
-      border-radius: 50%;
-      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      background: var(--accent);
       letter-spacing: 0.02em;
+      box-shadow: 5px 5px 0 var(--ink);
     }
 
     nav {
@@ -128,7 +127,7 @@
 
     .kicker {
       margin: 0 0 20px;
-      color: var(--green);
+      color: var(--ink);
       font-size: 0.82rem;
       font-weight: 800;
       letter-spacing: 0.16em;
@@ -187,29 +186,25 @@
       text-transform: uppercase;
     }
 
-    .swatches {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      border-top: 1px solid var(--hairline);
-      padding-top: 18px;
+    .stance {
+      border: 2px solid var(--ink);
+      background: var(--accent);
+      color: var(--ink);
+      padding: 15px 16px 14px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transform: rotate(-1.2deg);
+      box-shadow: 7px 7px 0 var(--ink);
     }
-
-    .swatches span {
-      aspect-ratio: 1;
-      border: 1px solid rgba(22, 21, 20, 0.22);
-    }
-
-    .swatches span:nth-child(1) { background: var(--red); }
-    .swatches span:nth-child(2) { background: var(--blue); }
-    .swatches span:nth-child(3) { background: var(--gold); }
-    .swatches span:nth-child(4) { background: var(--green); }
 
     .section-grid {
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 760px);
       gap: clamp(24px, 5vw, 70px);
-      border-top: 1px solid var(--hairline);
+      border-top: 2px solid var(--ink);
       margin-top: clamp(54px, 8vw, 88px);
       padding-top: clamp(28px, 5vw, 42px);
     }
@@ -240,14 +235,14 @@
     .timeline {
       display: grid;
       gap: 0;
-      border-top: 1px solid var(--hairline);
+      border-top: 2px solid var(--ink);
     }
 
     .role {
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
       gap: 22px;
-      border-bottom: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--ink);
       padding: 20px 0;
     }
 
@@ -284,7 +279,7 @@
     }
 
     .list li {
-      border-bottom: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--ink);
       padding-bottom: 14px;
       color: var(--soft-ink);
       font-size: clamp(1.05rem, 1.4vw, 1.18rem);
@@ -306,7 +301,7 @@
       padding: clamp(26px, 5vw, 46px);
       border: 1px solid var(--ink);
       background: var(--white);
-      box-shadow: 12px 12px 0 rgba(22, 21, 20, 0.08);
+      box-shadow: 12px 12px 0 var(--accent), 13px 13px 0 var(--ink);
     }
 
     .contact-band p {
@@ -396,10 +391,6 @@
         line-height: 1.16;
       }
 
-      .swatches {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
       .contact-links {
         min-width: 0;
       }
@@ -436,9 +427,7 @@
           <strong>Formerly</strong>
           Vox Media, The Wall Street Journal, Reuters, The New York Times, CBS News.
         </p>
-        <div class="swatches" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
+        <p class="stance">Plain language. Useful systems. No case-study theater.</p>
       </aside>
     </main>
 
