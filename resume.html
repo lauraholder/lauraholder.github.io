@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume | Laura T Holder</title>
+  <meta name="description" content="Browser-readable resume for Laura T Holder, product designer and design leader.">
+  <meta name="theme-color" content="#fff0ae">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff0ae;
+      --ink: #11100e;
+      --soft-ink: #3f372f;
+      --quiet: #766552;
+      --grid: rgba(17, 16, 14, 0.055);
+      --citrus: #eaff32;
+      --pink: #ff3f9d;
+      --white: #fff8d3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--paper);
+      text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
+      background:
+        linear-gradient(90deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
+        linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(17, 16, 14, 0.44);
+      text-decoration-thickness: 0.06em;
+      text-underline-offset: 0.2em;
+    }
+
+    a:hover {
+      background: linear-gradient(transparent 58%, var(--pink) 58%);
+      text-decoration-color: var(--ink);
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(255, 63, 157, 0.75);
+      outline-offset: 4px;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 22px;
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .mark::before {
+      content: "LH";
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--ink);
+      background: var(--citrus);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      color: var(--soft-ink);
+      font-size: 0.88rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 310px);
+      gap: clamp(34px, 7vw, 82px);
+      padding: clamp(54px, 8vw, 90px) 0 clamp(42px, 7vw, 76px);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .kicker,
+    h2,
+    .meta-label {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(3.25rem, 8vw, 7rem);
+      font-weight: 500;
+      line-height: 0.92;
+    }
+
+    .summary {
+      max-width: 780px;
+      margin: 0;
+      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(1.32rem, 2.6vw, 2.2rem);
+      font-weight: 450;
+      line-height: 1.18;
+    }
+
+    .meta-card {
+      align-self: start;
+      border: 2px solid var(--ink);
+      background: var(--pink);
+      padding: 18px;
+      box-shadow: 8px 8px 0 var(--citrus), 10px 10px 0 var(--ink);
+      transform: rotate(1deg);
+    }
+
+    .meta-card p {
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .meta-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: minmax(150px, 210px) minmax(0, 780px);
+      gap: clamp(24px, 5vw, 70px);
+      border-bottom: 2px solid var(--ink);
+      padding: clamp(30px, 5vw, 46px) 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--quiet);
+    }
+
+    .body {
+      min-width: 0;
+      color: var(--soft-ink);
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      line-height: 1.56;
+    }
+
+    .body p {
+      margin: 0 0 1em;
+    }
+
+    .body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .competencies {
+      columns: 2;
+      column-gap: 44px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .competencies li {
+      break-inside: avoid;
+      border-bottom: 1px solid var(--ink);
+      padding: 0 0 8px;
+      margin: 0 0 8px;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+      gap: 22px;
+      border-top: 1px solid var(--ink);
+      padding: 22px 0;
+    }
+
+    .role:first-child {
+      border-top-width: 2px;
+      padding-top: 0;
+    }
+
+    .role:last-child {
+      padding-bottom: 0;
+    }
+
+    time {
+      color: var(--quiet);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0 0 9px;
+      color: var(--ink);
+      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(1.32rem, 2vw, 1.76rem);
+      font-weight: 550;
+      line-height: 1.12;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    li {
+      margin-bottom: 0.55em;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .stack-list li {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 12px;
+    }
+
+    .stack-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      margin-top: clamp(42px, 8vw, 86px);
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid var(--ink);
+      background: var(--white);
+      box-shadow: 12px 12px 0 var(--citrus), 13px 13px 0 var(--ink);
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0;
+      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(1.36rem, 2.8vw, 2.25rem);
+      font-weight: 450;
+      line-height: 1.15;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 175px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(17, 16, 14, 0.18);
+      margin-top: 44px;
+      padding-top: 22px;
+      color: var(--quiet);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 28px, 700px);
+      }
+
+      header,
+      footer {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .resume-grid,
+      .role,
+      .cta {
+        grid-template-columns: 1fr;
+      }
+
+      .competencies {
+        columns: 1;
+      }
+
+      .cta-links {
+        min-width: 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        width: auto;
+        padding: 0;
+      }
+
+      nav,
+      .cta,
+      footer {
+        display: none;
+      }
+
+      .meta-card,
+      .mark::before {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="mark" href="/" aria-label="Laura T Holder home">Laura T Holder</a>
+      <nav aria-label="Resume links">
+        <a href="/">Home</a>
+        <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
+        <a href="LauraTHolder-resume-CV-2025.pdf">Download PDF</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="resume-title">
+        <div>
+          <p class="kicker">Browser resume</p>
+          <h1 id="resume-title">Laura T Holder</h1>
+          <p class="summary">
+            Product designer and design leader shaping publishing platforms, design systems,
+            editorial tools, and award-winning interaction experiences.
+          </p>
+        </div>
+        <aside class="meta-card" aria-label="Resume contact and focus">
+          <p><span class="meta-label">Location</span><br>Brooklyn, New York</p>
+          <p><span class="meta-label">Contact</span><br><a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a></p>
+          <p><span class="meta-label">PDF</span><br><a href="LauraTHolder-resume-CV-2025.pdf">Download original resume</a></p>
+        </aside>
+      </section>
+
+      <section class="resume-grid" aria-labelledby="profile-title">
+        <h2 id="profile-title">Profile</h2>
+        <div class="body">
+          <p>
+            As a product designer and design leader, I craft innovative and resonant experiences
+            that inspire engagement and loyalty in users and deliver measurable value to businesses.
+            I take a multidisciplinary and collaborative approach to shaping and shipping cogent,
+            data-rich, and often award-winning interaction experiences through strategy, research,
+            and design.
+          </p>
+        </div>
+      </section>
+
+      <section class="resume-grid" aria-labelledby="competencies-title">
+        <h2 id="competencies-title">Competencies & tools</h2>
+        <div class="body">
+          <ul class="competencies">
+            <li>Team leadership and individual mentorship</li>
+            <li>Accessible and inclusive design</li>
+            <li>Design systems and systems thinking</li>
+            <li>User research, testing, and synthesis</li>
+            <li>Data and analytics-informed product work</li>
+            <li>User advocacy</li>
+            <li>Use cases and user journeys</li>
+            <li>Interface and product writing</li>
+            <li>Agile / Scrum</li>
+            <li>Figma design and prototyping</li>
+            <li>Adobe Creative Cloud</li>
+            <li>Maze and research tools</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-grid" aria-labelledby="experience-title">
+        <h2 id="experience-title">Selected experience</h2>
+        <div class="body">
+          <article class="role">
+            <time>2024-present</time>
+            <div>
+              <h3>Independent product and content designer</h3>
+              <ul>
+                <li>Product, content, and interaction design solutions for media and fintech clients.</li>
+                <li>Design system deliverables and strategy for teams working across complex product surfaces.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>2018-2023</time>
+            <div>
+              <h3>Vox Media - Design Director & Principal Product Designer</h3>
+              <ul>
+                <li>Member of senior design leadership across Vox, New York Magazine, and Group Nine digital properties including The Verge, Eater, Polygon, SB Nation, and related sites.</li>
+                <li>Design Director of Chorus, Vox's enterprise SaaS CMS platform, responsible for tooling UX, UI, design system, and publishing platform integrations.</li>
+                <li>Led tooling design and execution for The Verge's 2023 site redesign, including a new story format that doubled pageviews for live content, increased time-on-homepage 7%, and saved editorial staff 20 hours per week.</li>
+                <li>Directed custom editorial storytelling, supportive tooling systems, workflow design, research, product strategy, and product writing.</li>
+                <li>Contributed UX direction for Coral, a SaaS community and commenting platform, and led design for the Eater mobile app.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>2008-2018</time>
+            <div>
+              <h3>The Wall Street Journal - Graphics Design Director / Product Design Director</h3>
+              <ul>
+                <li>Led teams of designers, developers, data journalists, reporters, and editors creating visual, data, and journalistic experiences.</li>
+                <li>Identified and established patterns to systematize experiences and tooling for efficient publishing workflows.</li>
+                <li>Led multidisciplinary site redesign work across typography, graphics, color, data, and paywall experiences to increase subscriptions, loyalty, pageviews, and revenue.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>2006-2007</time>
+            <div>
+              <h3>Reuters Global Media - Product Design Director</h3>
+              <ul>
+                <li>Led UX and audience experience design for Reuters.com, Reuters.co.jp, and Reuters.co.uk consumer sites.</li>
+                <li>Designed on-air package systems, enterprise software UX, branding, and award-winning online photography experiences.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>2006</time>
+            <div>
+              <h3>The New York Times - Interaction Designer</h3>
+              <ul>
+                <li>Designed branding, iconography, templates, and identities for early NYT blogs.</li>
+                <li>Contributed product, editorial, and newsletter design.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>2005</time>
+            <div>
+              <h3>Daylo.com - Creative Director, Co-founder</h3>
+              <ul>
+                <li>Led product, usability research, and design for a creative services marketplace startup.</li>
+                <li>Directed identity, marketing, and branding.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <time>1997-2001</time>
+            <div>
+              <h3>CBS News - Associate Creative Director</h3>
+              <ul>
+                <li>Directed online presence for CBS News and Entertainment, including networks and more than 200 affiliate sites.</li>
+                <li>Worked across information architecture, taxonomy, templating abstractions, HTML, and CSS for network and affiliate systems.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-grid" aria-labelledby="awards-title">
+        <h2 id="awards-title">Awards & affiliations</h2>
+        <div class="body">
+          <ul class="stack-list">
+            <li>2023 Anthem Award and Webby nomination for Language, Please.</li>
+            <li>Society for News Design Gold Medal, Silver Medal, and Awards of Excellence.</li>
+            <li>Data Journalism Best Visualization of the Year and Information is Beautiful award recognition.</li>
+            <li>Society for News Design member since 2016.</li>
+            <li>Photography exhibited at Jen Bekman Gallery and published in The New York Times, Good, Gawker, Gothamist, and other publications.</li>
+            <li>Guest lecturer at The New School Journalism + Design program; guest capstone thesis critic at The Cooper Union and Yale University.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-grid" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="body">
+          <ul class="stack-list">
+            <li>Bachelor of Fine Arts, Iowa State University, 1991.</li>
+            <li>Furniture Design Studies, University of California at Berkeley, 1993.</li>
+            <li>Furniture Design Scholarship, Anderson Ranch Arts Center, 1996.</li>
+            <li>Continuing Painting Studies, The Cooper Union, 2000.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cta" aria-labelledby="resume-cta-title">
+        <p id="resume-cta-title">Prefer the old-school artifact? The original PDF is still here.</p>
+        <div class="cta-links">
+          <a href="LauraTHolder-resume-CV-2025.pdf">Download PDF</a>
+          <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Laura T Holder</span>
+      <span>Product design, systems, and publishing tools</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -9,21 +9,23 @@
   <meta property="og:title" content="Laura T Holder">
   <meta property="og:description" content="Product design, design leadership, publishing platforms, and editorial systems.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#f3f0e7">
+  <meta name="theme-color" content="#fff0ae">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
-      --paper: #f3f0e7;
+      --paper: #fff0ae;
       --ink: #11100e;
-      --soft-ink: #44413b;
-      --quiet: #706b61;
+      --soft-ink: #3f372f;
+      --quiet: #766552;
       --hairline: rgba(17, 16, 14, 0.18);
       --grid: rgba(17, 16, 14, 0.055);
-      --accent: #d6ff3f;
-      --white: #fffdf7;
+      --citrus: #eaff32;
+      --pink: #ff3f9d;
+      --accent: var(--pink);
+      --white: #fff8d3;
     }
 
     * {
@@ -61,7 +63,7 @@
     }
 
     a:focus-visible {
-      outline: 3px solid rgba(214, 255, 63, 0.9);
+      outline: 3px solid rgba(255, 63, 157, 0.75);
       outline-offset: 4px;
     }
 
@@ -100,7 +102,7 @@
       height: 44px;
       border: 2px solid var(--ink);
       border-radius: 0;
-      background: var(--accent);
+      background: var(--citrus);
       letter-spacing: 0.02em;
       box-shadow: 5px 5px 0 var(--ink);
     }
@@ -168,6 +170,31 @@
       align-self: start;
     }
 
+    .portrait {
+      position: relative;
+      margin: 0 0 4px;
+      transform: rotate(1.1deg);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+      border: 2px solid var(--ink);
+      box-shadow: 9px 9px 0 var(--pink), 11px 11px 0 var(--ink);
+    }
+
+    .portrait figcaption {
+      margin-top: 11px;
+      color: var(--ink);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
     .note {
       border-top: 1px solid var(--ink);
       padding-top: 18px;
@@ -188,7 +215,7 @@
 
     .stance {
       border: 2px solid var(--ink);
-      background: var(--accent);
+      background: var(--pink);
       color: var(--ink);
       padding: 15px 16px 14px;
       font-size: 0.86rem;
@@ -197,7 +224,7 @@
       letter-spacing: 0.09em;
       text-transform: uppercase;
       transform: rotate(-1.2deg);
-      box-shadow: 7px 7px 0 var(--ink);
+      box-shadow: 7px 7px 0 var(--citrus), 9px 9px 0 var(--ink);
     }
 
     .section-grid {
@@ -301,7 +328,7 @@
       padding: clamp(26px, 5vw, 46px);
       border: 1px solid var(--ink);
       background: var(--white);
-      box-shadow: 12px 12px 0 var(--accent), 13px 13px 0 var(--ink);
+      box-shadow: 12px 12px 0 var(--citrus), 13px 13px 0 var(--ink);
     }
 
     .contact-band p {
@@ -403,7 +430,8 @@
       <a class="mark" href="/" aria-label="Laura T Holder home">Laura T Holder</a>
       <nav aria-label="Primary links">
         <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
-        <a href="LauraTHolder-resume-CV-2025.pdf">Resume</a>
+        <a href="resume.html">Resume</a>
+        <a href="LauraTHolder-resume-CV-2025.pdf">PDF</a>
         <a href="https://github.com/lauraholder">GitHub</a>
       </nav>
     </header>
@@ -419,6 +447,10 @@
       </section>
 
       <aside class="aside" aria-label="Profile notes">
+        <figure class="portrait">
+          <img src="assets/laura-holder-duotone.png" alt="Duotone portrait of Laura T Holder">
+          <figcaption>Citrus/pink field note, not a corporate headshot.</figcaption>
+        </figure>
         <p class="note">
           <strong>Current</strong>
           Independent product, content, and interaction design for media and fintech clients.
@@ -494,6 +526,7 @@
       <p id="contact-title">I'm open to thoughtful product, platform, editorial, and systems work.</p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
+        <a href="resume.html">View resume</a>
         <a href="LauraTHolder-resume-CV-2025.pdf">Download resume</a>
       </div>
     </section>
