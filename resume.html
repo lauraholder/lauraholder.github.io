@@ -16,13 +16,14 @@
       --ink: #ff3368;
       --soft-ink: #373577;
       --quiet: rgba(55, 53, 119, 0.72);
-      --grid: #f6feb8;
+      --grid: #ecfceb;
       --citrus: #f6feb8;
       --pink: #ff3368;
       --accent: #93ff89;
       --white: #fffaff;
       --major-rule: 6px solid var(--ink);
       --citrus-shadow: 24px 10px 20px rgba(246, 254, 184, 0.95);
+      --block-shadow: 18px 12px 12px rgba(255, 51, 104, 0.72);
     }
 
     * {
@@ -54,7 +55,8 @@
 
     a:hover {
       background: linear-gradient(transparent 58%, var(--accent) 58%);
-      text-decoration-color: var(--ink);
+      color: var(--soft-ink);
+      text-decoration-color: currentColor;
     }
 
     a:focus-visible {
@@ -97,7 +99,7 @@
       height: 44px;
       border: 2px solid var(--ink);
       background: var(--citrus);
-      box-shadow: 9px 5px 0 var(--ink);
+      box-shadow: var(--block-shadow);
     }
 
     nav {
@@ -134,7 +136,7 @@
 
     h1 {
       margin: 0 0 24px;
-      color: var(--ink);
+      color: var(--soft-ink);
       font-family: "Space Grotesk", "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
       font-size: clamp(3.5rem, 8.7vw, 8.2rem);
       font-weight: 900;
