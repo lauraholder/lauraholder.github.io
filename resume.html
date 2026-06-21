@@ -14,8 +14,9 @@
       color-scheme: light;
       --paper: #ffffff;
       --ink: #ff3368;
-      --soft-ink: #ff3368;
-      --quiet: rgba(255, 51, 104, 0.72);
+      --soft-ink: #373577;
+      --quiet: rgba(55, 53, 119, 0.72);
+      --hairline: rgba(55, 53, 119, 0.2);
       --grid: #ecfceb;
       --citrus: #f6feb8;
       --pink: #ff3368;
@@ -48,7 +49,7 @@
 
     a {
       color: inherit;
-      text-decoration-color: rgba(255, 51, 104, 0.44);
+      text-decoration-color: rgba(55, 53, 119, 0.44);
       text-decoration-thickness: 0.06em;
       text-underline-offset: 0.2em;
     }
@@ -136,7 +137,7 @@
 
     h1 {
       margin: 0 0 24px;
-      color: var(--soft-ink);
+      color: var(--ink);
       font-family: "Space Grotesk", "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
       font-size: clamp(2.25rem, 5.4vw, 5.1rem);
       font-weight: 900;
@@ -147,6 +148,7 @@
     .summary {
       max-width: 780px;
       margin: 0;
+      color: var(--ink);
       font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       font-size: clamp(0.94rem, 1.8vw, 1.54rem);
       font-weight: 450;
@@ -161,6 +163,7 @@
       box-shadow: var(--block-shadow);
       transform: rotate(-1.3deg);
       margin: 0 48px 30px 0;
+      font-family: "Space Grotesk", "Work Sans", sans-serif;
     }
 
     .meta-card p {
@@ -226,7 +229,7 @@
     }
 
     .role:first-child {
-      border-top-width: 0;
+      border-top: 0;
       padding-top: 0;
     }
 
@@ -320,7 +323,7 @@
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      border-top: 1px solid rgba(255, 51, 104, 0.2);
+      border-top: 1px solid var(--hairline);
       margin-top: 44px;
       padding-top: 22px;
       color: var(--quiet);

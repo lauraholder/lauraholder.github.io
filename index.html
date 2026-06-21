@@ -221,6 +221,10 @@
       padding-top: clamp(28px, 5vw, 42px);
     }
 
+    .section-label {
+      min-width: 0;
+    }
+
     h2 {
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
@@ -228,6 +232,23 @@
       font-weight: 800;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+    }
+
+    .about-portrait {
+      width: min(170px, 100%);
+      margin: 24px 0 0;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      transform: rotate(-1.3deg);
+    }
+
+    .about-portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      filter: grayscale(1) sepia(1) saturate(5200%) hue-rotate(305deg) brightness(1.08) contrast(1.08);
     }
 
     .copy {
@@ -243,44 +264,6 @@
 
     .copy p:last-child {
       margin-bottom: 0;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 0;
-    }
-
-    .role {
-      display: grid;
-      grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
-      gap: 22px;
-      border-bottom: 1px dotted var(--quiet);
-      padding: 20px 0;
-    }
-
-    .role time {
-      color: var(--quiet);
-      font-family: "Space Grotesk", "Work Sans", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .role h3 {
-      margin: 0 0 6px;
-      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: clamp(1.28rem, 2vw, 1.65rem);
-      font-weight: 500;
-      line-height: 1.14;
-    }
-
-    .role p {
-      margin: 0;
-      color: var(--soft-ink);
-      font-size: 1rem;
-      line-height: 1.55;
-      overflow-wrap: anywhere;
     }
 
     .list {
@@ -343,11 +326,6 @@
         min-width: 0;
       }
 
-      .role {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
     }
 
     @media (max-width: 520px) {
@@ -406,7 +384,12 @@
     </main>
 
     <section class="section-grid" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
+      <div class="section-label">
+        <h2 id="about-title">About</h2>
+        <figure class="about-portrait" aria-label="Laura Holder portrait in pink monotone">
+          <img src="assets/laura-about.png" alt="">
+        </figure>
+      </div>
       <div class="copy">
         <p>
           I shape and ship digital product experiences for publications and platforms, often where editorial
@@ -418,47 +401,6 @@
           publishing workflows, modular story formats, accessibility-minded systems, and product language that
           gives teams a shared way to move.
         </p>
-      </div>
-    </section>
-
-    <section class="section-grid" aria-labelledby="work-title">
-      <h2 id="work-title">Selected work</h2>
-      <div class="timeline">
-        <article class="role">
-          <time>2025-present</time>
-          <div>
-            <h3>VP Product Design, Hearst Magazines</h3>
-            <p>Leading product design for systems and publishing workflows that support more than 50 US and International brand magazine sites.</p>
-          </div>
-        </article>
-        <article class="role">
-          <time>2024-2025</time>
-          <div>
-            <h3>Independent product and content designer</h3>
-            <p>Design system deliverables, product strategy, interaction design, and content design for media and fintech clients.</p>
-          </div>
-        </article>
-        <article class="role">
-          <time>2018-2023</time>
-          <div>
-            <h3>Vox Media, Design Director & Principal Product Designer</h3>
-            <p>Led design for Chorus, Vox's enterprise CMS platform, and contributed senior design leadership across Vox, New York Magazine, Group Nine, The Verge, Eater, Polygon, SB Nation, and related digital properties.</p>
-          </div>
-        </article>
-        <article class="role">
-          <time>2008-2018</time>
-          <div>
-            <h3>The Wall Street Journal, Graphics Design Director / Product Design Director</h3>
-            <p>Led multidisciplinary teams creating visual journalism, data-rich experiences, site systems, and interactive storytelling for subscription-focused digital products.</p>
-          </div>
-        </article>
-        <article class="role">
-          <time>Earlier</time>
-          <div>
-            <h3>Reuters, The New York Times, CBS News</h3>
-            <p>Directed consumer-site UX, online photography experiences, early blog templates, newsletters, iconography, network systems, and editorial product design.</p>
-          </div>
-        </article>
       </div>
     </section>
 
