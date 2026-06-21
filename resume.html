@@ -205,6 +205,18 @@
       margin-bottom: 0;
     }
 
+    .resume-grid.ink-section,
+    .resume-grid.ink-section h2,
+    .resume-grid.ink-section .body,
+    .resume-grid.ink-section time,
+    .resume-grid.ink-section h3 {
+      color: var(--ink);
+    }
+
+    .resume-grid.ink-section .role {
+      border-top-color: var(--ink);
+    }
+
     .competencies {
       columns: 2;
       column-gap: 44px;
@@ -405,7 +417,7 @@
         </div>
       </section>
 
-      <section class="resume-grid" aria-labelledby="competencies-title">
+      <section class="resume-grid ink-section" aria-labelledby="competencies-title">
         <h2 id="competencies-title">Competencies & tools</h2>
         <div class="body">
           <ul class="competencies">
@@ -425,7 +437,7 @@
         </div>
       </section>
 
-      <section class="resume-grid" aria-labelledby="experience-title">
+      <section class="resume-grid ink-section" aria-labelledby="experience-title">
         <h2 id="experience-title">Selected experience</h2>
         <div class="body">
           <article class="role">
