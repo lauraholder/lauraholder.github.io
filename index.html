@@ -26,6 +26,7 @@
       --pink: #f3a4c9;
       --accent: #93ff89;
       --white: #fffaff;
+      --major-rule: 6px solid var(--ink);
     }
 
     * {
@@ -79,7 +80,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 32px;
-      border-bottom: 2px solid var(--ink);
+      border-bottom: var(--major-rule);
       padding-bottom: 22px;
     }
 
@@ -147,12 +148,12 @@
 
     h1 {
       margin-bottom: 32px;
-      color: var(--soft-ink);
-      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: clamp(3rem, 7vw, 6.8rem);
+      color: var(--ink);
+      font-family: "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
+      font-size: clamp(3.4rem, 8.4vw, 8.35rem);
       font-weight: 900;
       letter-spacing: 0;
-      line-height: 0.95;
+      line-height: 0.84;
     }
 
     .intro {
@@ -212,7 +213,7 @@
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 760px);
       gap: clamp(24px, 5vw, 70px);
-      border-top: 2px solid var(--ink);
+      border-top: var(--major-rule);
       margin-top: clamp(54px, 8vw, 88px);
       padding-top: clamp(28px, 5vw, 42px);
     }
