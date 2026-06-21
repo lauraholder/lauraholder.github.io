@@ -14,8 +14,8 @@
       color-scheme: light;
       --paper: #ffffff;
       --ink: #ff3368;
-      --soft-ink: #373577;
-      --quiet: rgba(55, 53, 119, 0.72);
+      --soft-ink: #ff3368;
+      --quiet: rgba(255, 51, 104, 0.72);
       --grid: #ecfceb;
       --citrus: #f6feb8;
       --pink: #ff3368;
@@ -48,7 +48,7 @@
 
     a {
       color: inherit;
-      text-decoration-color: rgba(55, 53, 119, 0.44);
+      text-decoration-color: rgba(255, 51, 104, 0.44);
       text-decoration-thickness: 0.06em;
       text-underline-offset: 0.2em;
     }
@@ -175,7 +175,7 @@
 
     .resume-grid {
       display: grid;
-      grid-template-columns: minmax(150px, 210px) minmax(0, 780px);
+      grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
       gap: clamp(24px, 5vw, 70px);
       border-bottom: var(--major-rule);
       padding: clamp(30px, 5vw, 46px) 0;
@@ -225,7 +225,7 @@
     }
 
     .role:first-child {
-      border-top-width: 1px;
+      border-top-width: 0;
       padding-top: 0;
     }
 
@@ -319,7 +319,7 @@
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      border-top: 1px solid rgba(55, 53, 119, 0.2);
+      border-top: 1px solid rgba(255, 51, 104, 0.2);
       margin-top: 44px;
       padding-top: 22px;
       color: var(--quiet);
