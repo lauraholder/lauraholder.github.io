@@ -17,13 +17,13 @@
     :root {
       color-scheme: light;
       --paper: #fdf1ff;
-      --ink: #ff00f3;
+      --ink: #ff3368;
       --soft-ink: #373577;
       --quiet: rgba(55, 53, 119, 0.72);
       --hairline: rgba(55, 53, 119, 0.2);
       --grid: #ffffff;
       --citrus: #f6feb8;
-      --pink: #f3a4c9;
+      --pink: #ff3368;
       --accent: #93ff89;
       --white: #fffaff;
       --major-rule: 6px solid var(--ink);
@@ -64,7 +64,7 @@
     }
 
     a:focus-visible {
-      outline: 3px solid rgba(255, 0, 243, 0.65);
+      outline: 3px solid rgba(255, 51, 104, 0.65);
       outline-offset: 4px;
     }
 
@@ -149,7 +149,7 @@
     h1 {
       margin-bottom: 32px;
       color: var(--ink);
-      font-family: "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
+      font-family: "Space Grotesk", "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
       font-size: clamp(3.4rem, 8.4vw, 8.35rem);
       font-weight: 900;
       letter-spacing: 0;
@@ -195,7 +195,7 @@
     }
 
     .stance {
-      border: 2px solid var(--ink);
+      border: 0;
       background: var(--accent);
       color: var(--soft-ink);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
@@ -206,7 +206,7 @@
       letter-spacing: 0.09em;
       text-transform: uppercase;
       transform: rotate(-1.2deg);
-      box-shadow: 14px 8px 0 var(--citrus), 18px 10px 0 var(--ink);
+      box-shadow: 14px 8px 0 var(--citrus);
     }
 
     .section-grid {
@@ -413,7 +413,7 @@
 <body>
   <div class="page">
     <header>
-      <a class="mark" href="/" aria-label="Laura T Holder home">Laura T Holder</a>
+      <a class="mark" href="/" aria-label="Laura T Holder home"></a>
       <nav aria-label="Primary links">
         <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
         <a href="resume.html">Resume</a>
@@ -435,7 +435,7 @@
       <aside class="aside" aria-label="Profile notes">
         <p class="note">
           <strong>Current</strong>
-          Independent product, content, and interaction design for media and fintech clients.
+          VP Product Design, Hearst Magazines
         </p>
         <p class="note">
           <strong>Formerly</strong>
