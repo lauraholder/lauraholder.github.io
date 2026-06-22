@@ -27,6 +27,7 @@
       --soft-ink: #373577;
       --quiet: rgba(55, 53, 119, 0.72);
       --hairline: rgba(55, 53, 119, 0.2);
+      --thin-rule: var(--ink);
       --grid: #ecfceb;
       --citrus: #f6feb8;
       --pink: #ff3368;
@@ -47,6 +48,7 @@
       --soft-ink: #111111;
       --quiet: rgba(17, 17, 17, 0.72);
       --hairline: rgba(17, 17, 17, 0.2);
+      --thin-rule: var(--ink);
       --grid: #ededed;
       --citrus: #f4f4f4;
       --pink: #111111;
@@ -67,6 +69,7 @@
       --soft-ink: #f7f7f2;
       --quiet: rgba(247, 247, 242, 0.72);
       --hairline: rgba(247, 247, 242, 0.22);
+      --thin-rule: rgba(247, 247, 242, 0.42);
       --grid: #202020;
       --citrus: #151515;
       --pink: #f7f7f2;
@@ -311,7 +314,7 @@
 
     .competencies li {
       break-inside: avoid;
-      border-bottom: 1px solid var(--ink);
+      border-bottom: 1px solid var(--thin-rule);
       padding: 0 0 8px;
       margin: 0 0 8px;
     }
@@ -320,7 +323,7 @@
       display: grid;
       grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
       gap: 22px;
-      border-top: 1px dotted var(--ink);
+      border-top: 1px dotted var(--thin-rule);
       padding: 22px 0;
     }
 
@@ -374,7 +377,7 @@
     }
 
     .stack-list li {
-      border-bottom: 1px solid var(--ink);
+      border-bottom: 1px solid var(--thin-rule);
       padding-bottom: 12px;
     }
 

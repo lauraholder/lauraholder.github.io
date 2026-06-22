@@ -31,6 +31,7 @@
       --soft-ink: #ff3368;
       --quiet: rgba(255, 51, 104, 0.72);
       --hairline: rgba(255, 51, 104, 0.2);
+      --thin-rule: var(--ink);
       --grid: #ecfceb;
       --citrus: #f6feb8;
       --pink: #ff3368;
@@ -50,6 +51,7 @@
       --soft-ink: #111111;
       --quiet: rgba(17, 17, 17, 0.72);
       --hairline: rgba(17, 17, 17, 0.2);
+      --thin-rule: var(--ink);
       --grid: #ededed;
       --citrus: #f4f4f4;
       --pink: #111111;
@@ -69,6 +71,7 @@
       --soft-ink: #f7f7f2;
       --quiet: rgba(247, 247, 242, 0.72);
       --hairline: rgba(247, 247, 242, 0.22);
+      --thin-rule: rgba(247, 247, 242, 0.42);
       --grid: #202020;
       --citrus: #151515;
       --pink: #f7f7f2;
@@ -260,7 +263,7 @@
     }
 
     .note {
-      border-top: 1px solid var(--ink);
+      border-top: 1px solid var(--thin-rule);
       padding-top: 18px;
       color: var(--soft-ink);
       font-size: 0.98rem;
@@ -365,7 +368,7 @@
     }
 
     .list li {
-      border-bottom: 1px solid var(--ink);
+      border-bottom: 1px solid var(--thin-rule);
       padding-bottom: 14px;
       color: var(--soft-ink);
       font-size: clamp(1.05rem, 1.4vw, 1.18rem);
