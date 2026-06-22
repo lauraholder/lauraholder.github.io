@@ -16,8 +16,9 @@
   <script>
     (function () {
       try {
-        if (localStorage.getItem("laura-color-theme") === "mono") {
-          document.documentElement.dataset.theme = "mono";
+        var savedTheme = localStorage.getItem("laura-color-theme");
+        if (savedTheme === "mono" || savedTheme === "knockout") {
+          document.documentElement.dataset.theme = savedTheme;
         }
       } catch (error) {}
     })();
@@ -59,6 +60,25 @@
       --stance-pink-shadow: 16px 18px 14px rgba(0, 0, 0, 0.24);
       --link-underline: rgba(17, 17, 17, 0.42);
       --focus-ring: rgba(17, 17, 17, 0.55);
+    }
+
+    :root[data-theme="knockout"] {
+      color-scheme: dark;
+      --paper: #080808;
+      --ink: #f7f7f2;
+      --soft-ink: #f7f7f2;
+      --quiet: rgba(247, 247, 242, 0.72);
+      --hairline: rgba(247, 247, 242, 0.22);
+      --grid: #202020;
+      --citrus: #151515;
+      --pink: #f7f7f2;
+      --accent: #2a2a2a;
+      --white: #101010;
+      --citrus-shadow: 24px 10px 20px rgba(255, 255, 255, 0.16);
+      --block-shadow: 16px 18px 14px rgba(255, 255, 255, 0.18);
+      --stance-pink-shadow: 16px 18px 14px rgba(255, 255, 255, 0.18);
+      --link-underline: rgba(247, 247, 242, 0.5);
+      --focus-ring: rgba(247, 247, 242, 0.72);
     }
 
     * {
@@ -313,6 +333,10 @@
       filter: grayscale(1) contrast(1.12);
     }
 
+    :root[data-theme="knockout"] .about-portrait img {
+      filter: grayscale(1) contrast(1.25) brightness(0.72);
+    }
+
     .copy {
       color: var(--soft-ink);
       font-size: clamp(1.08rem, 1.5vw, 1.24rem);
@@ -488,19 +512,19 @@
   </div>
   <script>
     (function () {
-      var themes = ["pink", "mono"];
+      var themes = ["pink", "mono", "knockout"];
       var storageKey = "laura-color-theme";
       var root = document.documentElement;
 
       function currentTheme() {
-        return root.dataset.theme === "mono" ? "mono" : "pink";
+        return themes.indexOf(root.dataset.theme) > -1 ? root.dataset.theme : "pink";
       }
 
       function applyTheme(theme) {
-        if (theme === "mono") {
-          root.dataset.theme = "mono";
-        } else {
+        if (theme === "pink") {
           root.removeAttribute("data-theme");
+        } else {
+          root.dataset.theme = theme;
         }
 
         try {
