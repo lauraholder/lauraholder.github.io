@@ -123,18 +123,29 @@
     }
 
     .page {
+      --page-top: 34px;
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 34px 0 56px;
+      padding: var(--page-top) 0 56px;
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 30px;
       border-bottom: var(--major-rule);
+      margin-top: calc(-1 * var(--page-top));
+      padding-top: var(--page-top);
       padding-bottom: 22px;
+      background:
+        linear-gradient(90deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
+        linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
+        var(--paper);
+      background-attachment: fixed;
     }
 
     .mark {
@@ -431,7 +442,8 @@
 
     @media (max-width: 520px) {
       .page {
-        padding-top: 24px;
+        --page-top: 24px;
+        padding-top: var(--page-top);
       }
 
       nav {
