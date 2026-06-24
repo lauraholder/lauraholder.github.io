@@ -146,6 +146,13 @@
         linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
         var(--paper);
       background-attachment: fixed;
+      transition: padding-top 180ms ease, padding-bottom 180ms ease;
+    }
+
+    header.is-scrolled {
+      padding-top: 0;
+      padding-bottom: 0;
+      background: none;
     }
 
     .mark {
@@ -407,7 +414,7 @@
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      border-top: 1px solid var(--hairline);
+      border-top: 1px dotted var(--hairline);
       margin-top: 44px;
       padding-top: 22px;
       color: var(--quiet);
@@ -709,6 +716,17 @@
           applyTheme(nextTheme);
         });
       });
+
+      var header = document.querySelector("header");
+
+      function updateHeader() {
+        if (header) {
+          header.classList.toggle("is-scrolled", window.scrollY > 8);
+        }
+      }
+
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
     })();
   </script>
 </body>
