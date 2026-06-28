@@ -13,7 +13,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -68,21 +68,21 @@
     :root[data-theme="knockout"] {
       color-scheme: dark;
       --paper: #080808;
-      --ink: #c4a4ac;
-      --soft-ink: #c4a4ac;
-      --quiet: rgba(196, 164, 172, 0.72);
-      --hairline: rgba(196, 164, 172, 0.22);
-      --thin-rule: rgba(196, 164, 172, 0.42);
+      --ink: #fff6bc;
+      --soft-ink: #fff6bc;
+      --quiet: rgba(255, 246, 188, 0.72);
+      --hairline: rgba(255, 246, 188, 0.22);
+      --thin-rule: rgba(255, 246, 188, 0.42);
       --grid: #202020;
       --citrus: #151515;
-      --pink: #c4a4ac;
+      --pink: #fff6bc;
       --accent: #183d2e;
       --white: #101010;
       --citrus-shadow: 24px 10px 20px rgba(255, 255, 255, 0.16);
       --block-shadow: 16px 18px 14px rgba(255, 255, 255, 0.18);
       --stance-pink-shadow: 16px 18px 14px rgba(255, 255, 255, 0.18);
-      --link-underline: rgba(196, 164, 172, 0.5);
-      --focus-ring: rgba(196, 164, 172, 0.72);
+      --link-underline: rgba(255, 246, 188, 0.5);
+      --focus-ring: rgba(255, 246, 188, 0.72);
     }
 
     * {
@@ -136,7 +136,7 @@
       top: 0;
       z-index: 20;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 32px;
       border-bottom: var(--major-rule);
@@ -181,7 +181,7 @@
     .mark-label,
     .mark-icon {
       grid-area: 1 / 1;
-      transition: opacity 140ms ease;
+      transition: opacity 140ms ease, transform 180ms ease;
     }
 
     .mark-label {
@@ -190,9 +190,10 @@
 
     .mark-icon {
       display: block;
-      width: 1.08rem;
-      height: 1.08rem;
+      width: 1.28rem;
+      height: 1.28rem;
       opacity: 0;
+      transform: rotate(-9deg) translateY(1px);
     }
 
     .mark:hover .mark-label,
@@ -203,6 +204,7 @@
     .mark:hover .mark-icon,
     .mark:focus-visible .mark-icon {
       opacity: 1;
+      transform: rotate(-9deg) translateY(0);
     }
 
     .mark:focus-visible {
@@ -218,6 +220,38 @@
       color: var(--soft-ink);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
       font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    nav a {
+      text-decoration-color: currentColor;
+      text-underline-offset: 0;
+      transition: color 160ms ease, text-decoration-color 160ms ease;
+    }
+
+    :root:not([data-theme]) nav a {
+      color: var(--accent);
+      text-decoration-color: currentColor;
+    }
+
+    :root:not([data-theme]) nav a:hover {
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration-color: transparent;
+    }
+
+    :root[data-theme="knockout"] nav a {
+      display: inline-block;
+      padding: 0 0.12em;
+      background: var(--soft-ink);
+      color: #111111;
+      text-decoration-color: transparent;
+    }
+
+    :root[data-theme="knockout"] nav a:hover {
+      background: #111111;
+      color: var(--soft-ink);
+      text-decoration-color: var(--soft-ink);
     }
 
     main {
@@ -232,6 +266,7 @@
     }
 
     .kicker {
+      display: none;
       margin: 0 0 20px;
       color: var(--soft-ink);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
@@ -248,26 +283,26 @@
     }
 
     h1 {
-      margin-bottom: 32px;
-      color: var(--soft-ink);
-      font-family: "Space Grotesk", "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
-      font-size: clamp(2.25rem, 5.4vw, 5.1rem);
-      font-weight: 900;
-      letter-spacing: 0;
-      line-height: 0.84;
-    }
-
-    .intro {
       margin-bottom: 0;
       color: var(--soft-ink);
       font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: clamp(0.94rem, 1.8vw, 1.54rem);
-      font-weight: 450;
-      line-height: 1.18;
+      font-size: clamp(2.25rem, 5.4vw, 5.1rem);
+      letter-spacing: 0;
+      line-height: 0.94;
     }
 
-    .intro a {
-      text-decoration-thickness: 0.05em;
+    .name {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .intro {
+      color: var(--soft-ink);
+      font-family: inherit;
+      font-style: normal;
+      font-size: 0.86em;
+      font-weight: 350;
+      line-height: inherit;
     }
 
     .aside {
@@ -297,7 +332,21 @@
 
     :root[data-theme="knockout"] .note,
     :root[data-theme="knockout"] .note strong {
-      color: #c4a4ac;
+      color: var(--soft-ink);
+    }
+
+    .note-inline strong {
+      display: inline;
+      margin: 0 0.35em 0 0;
+      font-family: inherit;
+      font-size: calc(0.82rem - 2pt);
+      font-weight: 450;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .note-title {
+      font-weight: 700;
     }
 
     .stance {
@@ -316,6 +365,11 @@
       box-shadow: var(--stance-pink-shadow);
     }
 
+    :root[data-theme="knockout"] .stance {
+      background: #fff6bc;
+      color: #111111;
+    }
+
     .section-grid {
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
@@ -332,10 +386,16 @@
     h2 {
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: calc(0.82rem - 2pt);
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+    }
+
+    :root[data-theme="knockout"] h2,
+    :root[data-theme="knockout"] .note-inline strong,
+    :root[data-theme="knockout"] .list-label {
+      color: rgba(255, 246, 188, 0.8);
     }
 
     .about-portrait {
@@ -358,8 +418,13 @@
       filter: grayscale(1) contrast(1.12);
     }
 
+    :root[data-theme="knockout"] .about-portrait {
+      background: var(--soft-ink);
+    }
+
     :root[data-theme="knockout"] .about-portrait img {
-      filter: grayscale(1) contrast(1.25) brightness(0.72);
+      filter: grayscale(1) contrast(1.24) brightness(0.98);
+      mix-blend-mode: multiply;
     }
 
     .copy {
@@ -386,7 +451,7 @@
     }
 
     .list li {
-      border-bottom: 1px dotted var(--thin-rule);
+      border-bottom: 0;
       padding-bottom: 14px;
       color: var(--soft-ink);
       font-size: clamp(1.05rem, 1.4vw, 1.18rem);
@@ -399,16 +464,16 @@
       padding-bottom: 0;
     }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      border-top: 1px dotted var(--hairline);
-      margin-top: 44px;
-      padding-top: 22px;
+    .list-label {
+      display: block;
+      margin-bottom: 8px;
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
-      font-size: 0.82rem;
+      font-size: calc(0.82rem - 2pt);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.2;
+      text-transform: uppercase;
     }
 
     @media (max-width: 820px) {
@@ -422,8 +487,8 @@
         grid-template-columns: 1fr;
       }
 
-      header,
-      footer {
+      header {
+        align-items: flex-start;
         flex-direction: column;
       }
 
@@ -435,6 +500,32 @@
       .aside,
       .section-grid > * {
         min-width: 0;
+      }
+
+      .about-section {
+        display: block;
+      }
+
+      .about-section::after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+
+      .about-section .section-label {
+        display: block;
+        float: left;
+        width: min(30vw, 140px);
+        margin: 0 18px 10px 0;
+      }
+
+      .about-section .about-portrait {
+        width: 100%;
+        margin: 18px 0 0;
+      }
+
+      .about-section .copy {
+        display: block;
       }
 
     }
@@ -453,11 +544,6 @@
         font-size: clamp(1.9rem, 9.75vw, 2.78rem);
       }
 
-      .intro {
-        font-size: clamp(0.84rem, 4.35vw, 1.07rem);
-        line-height: 1.16;
-      }
-
     }
   </style>
 </head>
@@ -466,9 +552,9 @@
     <header>
       <button class="mark" type="button" data-theme-button aria-label="Reload color theme">
         <span class="mark-label" aria-hidden="true">LH</span>
-        <svg class="mark-icon" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
-          <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"></path>
-          <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"></path>
+        <svg class="mark-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.8 10.9 C4.6 6.2 6.8 11.3 8.3 6.7 C9.4 3.2 11.6 5 13.2 2.9"></path>
+          <path d="M11.2 2.9 L13.2 2.9 L13 4.9"></path>
         </svg>
       </button>
       <nav aria-label="Primary links">
@@ -481,29 +567,23 @@
     <main>
       <section class="lede" aria-labelledby="page-title">
         <p class="kicker">Product design / Design leadership</p>
-        <h1 id="page-title">Laura T Holder</h1>
-        <p class="intro">
-          I'm a Brooklyn-based product designer and design leader working at the intersection of publishing,
-          design systems, editorial tools, and the people who use them.
-        </p>
+        <h1 id="page-title"><span class="name">Laura T Holder</span> <span class="intro">is an NYC-based product design leader working at the intersection of publishing, design systems, editorial tools, and the people who use them.</span></h1>
       </section>
 
       <aside class="aside" aria-label="Profile notes">
-        <p class="note">
-          <strong>Current</strong>
-          VP Product Design, Hearst Magazines
+        <p class="note note-inline">
+          <strong>Current</strong> <span class="note-title">VP Product Design, Hearst Magazines</span>
         </p>
-        <p class="note">
-          <strong>Previous</strong>
-          Vox Media, The Wall Street Journal, Reuters, The New York Times, CBS News
+        <p class="note note-inline">
+          <strong>Previous</strong> <span class="note-title">Vox Media, The Wall Street Journal, Reuters, The New York Times, CBS News</span>
         </p>
         <p class="stance">Plain language. Useful systems. Collaborative problem-solving.</p>
       </aside>
     </main>
 
-    <section class="section-grid" aria-labelledby="about-title">
+    <section class="section-grid about-section" aria-labelledby="about-title">
       <div class="section-label">
-        <h2 id="about-title">About</h2>
+        <h2 id="about-title">More</h2>
         <figure class="about-portrait" aria-label="Laura Holder portrait in pink monotone">
           <img src="assets/laura-about.png" alt="">
         </figure>
@@ -511,11 +591,11 @@
       <div class="copy">
         <p>
           I shape and ship digital product experiences for publications and platforms where editorial ambition,
-          product systems, business needs, and internal workflows intersect, spanning product strategy, research
-          synthesis, UX/UI, visual design, content strategy, design systems, and team leadership.
+          product systems, business needs, and internal workflows intersect, spanning product and editorial strategy,
+          research synthesis, UX/UI, visual design, design systems, and team leadership.
         </p>
         <p>
-          I'm especially interested in tools that help people make great work with less friction: publishing workflows,
+          I'm especially interested in tools that help people create great work with less friction: publishing workflows,
           modular story formats, agentic workstreams, and product language that gives teams a shared way to provide
           solutions.
         </p>
@@ -523,18 +603,13 @@
     </section>
 
     <section class="section-grid" aria-labelledby="notes-title">
-      <h2 id="notes-title">Notes</h2>
+      <h2 id="notes-title">Even more</h2>
       <ul class="list">
-        <li>Design leadership across large media organizations, SaaS publishing platforms, and cross-functional editorial/product teams.</li>
         <li>Work recognized by the Anthem Awards, Webby nominations, Society for News Design, Data Journalism Awards, and Information is Beautiful.</li>
-        <li>Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</li>
+        <li><strong class="list-label">Oh so much more</strong> Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</li>
       </ul>
     </section>
 
-    <footer>
-      <span>Brooklyn, New York</span>
-      <span>Product design, systems, and publishing tools</span>
-    </footer>
   </div>
   <script>
     (function () {
