@@ -18,7 +18,7 @@
     (function () {
       try {
         var savedTheme = localStorage.getItem("laura-color-theme");
-        if (savedTheme === "mono" || savedTheme === "knockout") {
+        if (savedTheme === "mono" || savedTheme === "knockout" || savedTheme === "rainbow") {
           document.documentElement.dataset.theme = savedTheme;
         }
       } catch (error) {}
@@ -85,6 +85,28 @@
       --focus-ring: rgba(255, 246, 188, 0.72);
     }
 
+    :root[data-theme="rainbow"] {
+      color-scheme: light;
+      --paper: #ffffff;
+      --ink: #ff3368;
+      --soft-ink: #ff3368;
+      --quiet: rgba(255, 51, 104, 0.72);
+      --hairline: rgba(255, 51, 104, 0.24);
+      --thin-rule: rgba(255, 51, 104, 0.9);
+      --grid: transparent;
+      --citrus: #ffffff;
+      --pink: #ff3368;
+      --accent: #93ff89;
+      --white: #ffffff;
+      --major-rule: 6px solid #ff3368;
+      --citrus-shadow: 24px 10px 20px rgba(255, 226, 64, 0.55);
+      --block-shadow: 16px 18px 14px rgba(0, 180, 255, 0.26);
+      --stance-pink-shadow: 16px 18px 14px rgba(255, 51, 104, 0.34);
+      --link-underline: rgba(255, 51, 104, 0.5);
+      --focus-ring: rgba(0, 120, 255, 0.7);
+      --rainbow-gradient: linear-gradient(90deg, #ff3368 0%, #ff8a00 16%, #ffe23d 32%, #20c85a 48%, #00a6ff 64%, #5f51ff 80%, #c044ff 100%);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -103,6 +125,59 @@
         linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
         var(--paper);
       overflow-x: hidden;
+    }
+
+    :root[data-theme="rainbow"] body {
+      position: relative;
+      background: var(--paper);
+    }
+
+    :root[data-theme="rainbow"] body::before,
+    :root[data-theme="rainbow"] body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--rainbow-gradient);
+      background-size: 360px 360px;
+      opacity: 0.4;
+    }
+
+    :root[data-theme="rainbow"] body::before {
+      -webkit-mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+      mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+    }
+
+    :root[data-theme="rainbow"] body::after {
+      -webkit-mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+      mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+    }
+
+    :root[data-theme="rainbow"] .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="rainbow"] h1,
+    :root[data-theme="rainbow"] h2,
+    :root[data-theme="rainbow"] h3,
+    :root[data-theme="rainbow"] p,
+    :root[data-theme="rainbow"] li,
+    :root[data-theme="rainbow"] a,
+    :root[data-theme="rainbow"] strong,
+    :root[data-theme="rainbow"] span,
+    :root[data-theme="rainbow"] time {
+      background: var(--rainbow-gradient);
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    :root[data-theme="rainbow"] a {
+      text-decoration-color: #ff3368;
     }
 
     a {
@@ -299,7 +374,7 @@
     .intro {
       color: var(--soft-ink);
       font-family: inherit;
-      font-style: normal;
+      font-style: italic;
       font-size: 0.72em;
       font-weight: 350;
       line-height: inherit;
@@ -338,10 +413,10 @@
     .note-inline strong {
       display: inline;
       margin: 0 0.35em 0 0;
-      font-family: inherit;
+      font-family: "Space Grotesk", "Work Sans", sans-serif;
       font-size: calc(0.82rem - 2pt);
-      font-weight: 450;
-      letter-spacing: 0;
+      font-weight: 500;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -370,6 +445,11 @@
       color: #111111;
     }
 
+    :root[data-theme="mono"] .stance {
+      background: #111111;
+      color: #d9d9d9;
+    }
+
     .section-grid {
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
@@ -387,7 +467,7 @@
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
       font-size: calc(0.82rem - 2pt);
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -470,11 +550,38 @@
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
       font-size: calc(0.82rem - 2pt);
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: 0.16em;
       line-height: 1.2;
       text-transform: uppercase;
     }
+
+    @media (min-width: 821px) {
+      .notes-section .list {
+        display: contents;
+      }
+
+      .notes-section .list li {
+        grid-column: 2;
+      }
+
+      .notes-section .list-item-with-label {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+        gap: clamp(24px, 5vw, 70px);
+      }
+
+      .notes-section .list-label {
+        grid-column: 1;
+        margin-bottom: 0;
+      }
+
+      .notes-section .list-copy {
+        grid-column: 2;
+      }
+    }
+
 
     @media (max-width: 820px) {
       .page {
@@ -602,18 +709,18 @@
       </div>
     </section>
 
-    <section class="section-grid" aria-labelledby="notes-title">
+    <section class="section-grid notes-section" aria-labelledby="notes-title">
       <h2 id="notes-title">Even more</h2>
       <ul class="list">
         <li>Work recognized by the Anthem Awards, Webby nominations, Society for News Design, Data Journalism Awards, and Information is Beautiful.</li>
-        <li><strong class="list-label">Oh so much more</strong> Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</li>
+        <li class="list-item-with-label"><strong class="list-label">(Much much more)</strong> <span class="list-copy">Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</span></li>
       </ul>
     </section>
 
   </div>
   <script>
     (function () {
-      var themes = ["pink", "mono", "knockout"];
+      var themes = ["pink", "mono", "knockout", "rainbow"];
       var storageKey = "laura-color-theme";
       var root = document.documentElement;
 
