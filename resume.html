@@ -188,8 +188,8 @@
 
     .mark-icon {
       display: block;
-      width: 1.28rem;
-      height: 1.28rem;
+      width: 1.41rem;
+      height: 1.41rem;
       opacity: 0;
       transform: rotate(-9deg) translateY(1px);
     }
@@ -238,9 +238,9 @@
     }
 
     :root:not([data-theme]) nav a:hover {
-      background: var(--accent);
-      color: #ffffff;
-      text-decoration-color: transparent;
+      background: none;
+      color: var(--accent);
+      text-decoration-color: currentColor;
     }
 
     :root[data-theme="knockout"] nav a {
@@ -268,9 +268,9 @@
     .kicker,
     h2,
     .meta-label {
-      font-size: 0.78rem;
+      font-size: calc(0.82rem - 2pt);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
-      font-weight: 900;
+      font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -284,23 +284,26 @@
     }
 
     h1 {
-      margin: 0 0 24px;
-      color: var(--ink);
-      font-family: "Space Grotesk", "Work Sans", Avenir, "Avenir Next", "Gill Sans", "Segoe UI", sans-serif;
-      font-size: clamp(2.25rem, 5.4vw, 5.1rem);
-      font-weight: 900;
-      letter-spacing: 0;
-      line-height: 0.84;
-    }
-
-    .summary {
-      max-width: 780px;
       margin: 0;
       color: var(--ink);
       font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      font-size: clamp(0.94rem, 1.8vw, 1.54rem);
-      font-weight: 450;
-      line-height: 1.18;
+      font-size: clamp(2.25rem, 5.4vw, 5.1rem);
+      letter-spacing: 0;
+      line-height: 0.94;
+    }
+
+    .name {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .intro {
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.72em;
+      font-style: normal;
+      font-weight: 350;
+      line-height: inherit;
     }
 
     .meta-card {
@@ -317,7 +320,7 @@
     .meta-card p {
       margin: 0 0 14px;
       color: var(--soft-ink);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.45;
     }
 
@@ -478,10 +481,6 @@
         font-size: clamp(1.9rem, 9.75vw, 2.78rem);
       }
 
-      .summary {
-        font-size: clamp(0.84rem, 4.35vw, 1.07rem);
-        line-height: 1.16;
-      }
     }
 
     @media print {
@@ -511,8 +510,8 @@
       <button class="mark" type="button" data-theme-button aria-label="Reload color theme">
         <span class="mark-label" aria-hidden="true">LH</span>
         <svg class="mark-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2.8 10.9 C4.6 6.2 6.8 11.3 8.3 6.7 C9.4 3.2 11.6 5 13.2 2.9"></path>
-          <path d="M11.2 2.9 L13.2 2.9 L13 4.9"></path>
+          <path d="M3.4 12.1 C2.5 9.8 4.9 8.4 7 9.5 C10.2 11.1 12.5 8.3 10.8 6.2 C9.4 4.5 6.7 5.4 7.2 7.3 C7.9 9.8 12.3 8.8 12.2 5.1 C12.1 3.3 10.8 2.5 9.4 2.8"></path>
+          <path d="M11.1 1.7 L9.4 2.8 L11.2 3.9"></path>
         </svg>
       </button>
       <nav aria-label="Resume links">
@@ -526,11 +525,7 @@
       <section class="hero" aria-labelledby="resume-title">
         <div>
           <p class="kicker">Resume</p>
-          <h1 id="resume-title">Laura T Holder</h1>
-          <p class="summary">
-            Product designer and design leader shaping publishing platforms, design systems,
-            editorial tools, and award-winning interaction experiences.
-          </p>
+          <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></h1>
         </div>
         <aside class="meta-card" aria-label="Resume contact and focus">
           <p><span class="meta-label">Location</span><br>Brooklyn, New York</p>
