@@ -9,12 +9,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     (function () {
       try {
         var savedTheme = localStorage.getItem("laura-color-theme");
-        if (savedTheme === "mono" || savedTheme === "knockout") {
+        if (savedTheme === "mono" || savedTheme === "knockout" || savedTheme === "rainbow") {
           document.documentElement.dataset.theme = savedTheme;
         }
       } catch (error) {}
@@ -84,6 +84,29 @@
       --focus-ring: rgba(255, 246, 188, 0.72);
     }
 
+    :root[data-theme="rainbow"] {
+      color-scheme: light;
+      --paper: #ffffff;
+      --ink: #ff3368;
+      --soft-ink: #373577;
+      --quiet: rgba(55, 53, 119, 0.72);
+      --hairline: rgba(255, 51, 104, 0.24);
+      --thin-rule: rgba(255, 51, 104, 0.9);
+      --grid: transparent;
+      --citrus: #ffffff;
+      --pink: #ff3368;
+      --accent: #93ff89;
+      --white: #ffffff;
+      --major-rule: 6px solid #ff3368;
+      --citrus-shadow: 24px 10px 20px rgba(255, 226, 64, 0.55);
+      --block-shadow: 16px 18px 14px rgba(0, 180, 255, 0.26);
+      --stance-pink-shadow: 16px 18px 14px rgba(255, 51, 104, 0.34);
+      --link-underline: rgba(255, 51, 104, 0.5);
+      --nav-link-underline: rgba(255, 51, 104, 0.5);
+      --focus-ring: rgba(0, 120, 255, 0.7);
+      --rainbow-gradient: linear-gradient(90deg, #ff3368 0%, #ff8a00 16%, #ffe23d 32%, #20c85a 48%, #00a6ff 64%, #5f51ff 80%, #c044ff 100%);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -102,6 +125,59 @@
         linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
         var(--paper);
       overflow-x: hidden;
+    }
+
+    :root[data-theme="rainbow"] body {
+      position: relative;
+      background: var(--paper);
+    }
+
+    :root[data-theme="rainbow"] body::before,
+    :root[data-theme="rainbow"] body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--rainbow-gradient);
+      background-size: 360px 360px;
+      opacity: 0.4;
+    }
+
+    :root[data-theme="rainbow"] body::before {
+      -webkit-mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+      mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+    }
+
+    :root[data-theme="rainbow"] body::after {
+      -webkit-mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+      mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
+    }
+
+    :root[data-theme="rainbow"] .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    :root[data-theme="rainbow"] h1,
+    :root[data-theme="rainbow"] h2,
+    :root[data-theme="rainbow"] h3,
+    :root[data-theme="rainbow"] p,
+    :root[data-theme="rainbow"] li,
+    :root[data-theme="rainbow"] a,
+    :root[data-theme="rainbow"] strong,
+    :root[data-theme="rainbow"] span,
+    :root[data-theme="rainbow"] time {
+      background: var(--rainbow-gradient);
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    :root[data-theme="rainbow"] a {
+      text-decoration-color: #ff3368;
     }
 
     a {
@@ -702,7 +778,7 @@
   </div>
   <script>
     (function () {
-      var themes = ["pink", "mono", "knockout"];
+      var themes = ["pink", "mono", "knockout", "rainbow"];
       var storageKey = "laura-color-theme";
       var root = document.documentElement;
 
