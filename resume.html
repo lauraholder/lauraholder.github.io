@@ -301,7 +301,7 @@
       color: var(--ink);
       font-family: inherit;
       font-size: 0.72em;
-      font-style: normal;
+      font-style: italic;
       font-weight: 350;
       line-height: inherit;
     }
@@ -320,12 +320,21 @@
     .meta-card p {
       margin: 0 0 14px;
       color: var(--soft-ink);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.45;
     }
 
     .meta-card p:last-child {
       margin-bottom: 0;
+    }
+
+    :root[data-theme="mono"] .meta-card {
+      background: #111111;
+    }
+
+    :root[data-theme="mono"] .meta-card p,
+    :root[data-theme="mono"] .meta-label {
+      color: #d9d9d9;
     }
 
     .resume-grid {

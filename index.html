@@ -299,7 +299,7 @@
     .intro {
       color: var(--soft-ink);
       font-family: inherit;
-      font-style: normal;
+      font-style: italic;
       font-size: 0.72em;
       font-weight: 350;
       line-height: inherit;
@@ -368,6 +368,11 @@
     :root[data-theme="knockout"] .stance {
       background: #fff6bc;
       color: #111111;
+    }
+
+    :root[data-theme="mono"] .stance {
+      background: #111111;
+      color: #d9d9d9;
     }
 
     .section-grid {
@@ -475,6 +480,33 @@
       line-height: 1.2;
       text-transform: uppercase;
     }
+
+    @media (min-width: 821px) {
+      .notes-section .list {
+        display: contents;
+      }
+
+      .notes-section .list li {
+        grid-column: 2;
+      }
+
+      .notes-section .list-item-with-label {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+        gap: clamp(24px, 5vw, 70px);
+      }
+
+      .notes-section .list-label {
+        grid-column: 1;
+        margin-bottom: 0;
+      }
+
+      .notes-section .list-copy {
+        grid-column: 2;
+      }
+    }
+
 
     @media (max-width: 820px) {
       .page {
@@ -602,11 +634,11 @@
       </div>
     </section>
 
-    <section class="section-grid" aria-labelledby="notes-title">
+    <section class="section-grid notes-section" aria-labelledby="notes-title">
       <h2 id="notes-title">Even more</h2>
       <ul class="list">
         <li>Work recognized by the Anthem Awards, Webby nominations, Society for News Design, Data Journalism Awards, and Information is Beautiful.</li>
-        <li><strong class="list-label">Oh so much more</strong> Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</li>
+        <li class="list-item-with-label"><strong class="list-label">Oh so much more</strong> <span class="list-copy">Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</span></li>
       </ul>
     </section>
 
