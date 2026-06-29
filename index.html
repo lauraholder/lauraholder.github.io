@@ -104,7 +104,7 @@
       --stance-pink-shadow: 16px 18px 14px rgba(60, 98, 255, 0.28);
       --link-underline: rgba(76, 89, 255, 0.52);
       --focus-ring: rgba(115, 75, 255, 0.72);
-      --rainbow-gradient: linear-gradient(135deg, #2148ff 0%, #6152ff 20%, #9c3dff 38%, #00a8ff 56%, #10cc79 74%, #fff05a 100%);
+      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 16%, #b33cff 29%, #ff4fa3 42%, #ff8a2a 54%, #ffe45c 66%, #21c86f 80%, #00a8ff 92%, #2367ff 100%);
     }
 
     * {
@@ -141,7 +141,7 @@
       pointer-events: none;
       background: var(--rainbow-gradient);
       background-size: 360px 360px;
-      opacity: 0.4;
+      opacity: 0.24;
     }
 
     :root[data-theme="rainbow"] body::before {
@@ -265,8 +265,8 @@
 
     .mark-icon {
       display: block;
-      width: 1.41rem;
-      height: 1.41rem;
+      width: 1.62rem;
+      height: 1.62rem;
       opacity: 0;
       transform: rotate(-9deg) translateY(1px);
     }
@@ -363,7 +363,7 @@
       font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       font-size: clamp(2.25rem, 5.4vw, 5.1rem);
       letter-spacing: 0;
-      line-height: 0.94;
+      line-height: 0.88;
     }
 
     .name {
@@ -514,8 +514,9 @@
     }
 
     :root[data-theme="rainbow"] .about-portrait img {
-      filter: grayscale(1) contrast(1.18) brightness(1.05);
-      mix-blend-mode: multiply;
+      filter: grayscale(0.86) contrast(1.08) brightness(1.04);
+      mix-blend-mode: luminosity;
+      opacity: 0.94;
     }
 
     :root[data-theme="rainbow"] .about-portrait::after {
@@ -523,8 +524,9 @@
       position: absolute;
       inset: 0;
       background: var(--rainbow-gradient);
-      mix-blend-mode: color;
-      opacity: 0.72;
+      background-size: 180% 180%;
+      mix-blend-mode: soft-light;
+      opacity: 0.38;
       pointer-events: none;
     }
 
@@ -567,6 +569,13 @@
       padding-bottom: 0;
     }
 
+    .notes-section .list li {
+      font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      font-size: clamp(1.08rem, 1.5vw, 1.24rem);
+      font-weight: 400;
+      line-height: 1.62;
+    }
+
     .list-label {
       display: block;
       margin-bottom: 8px;
@@ -588,21 +597,6 @@
         grid-column: 2;
       }
 
-      .notes-section .list-item-with-label {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
-        gap: clamp(24px, 5vw, 70px);
-      }
-
-      .notes-section .list-label {
-        grid-column: 1;
-        margin-bottom: 0;
-      }
-
-      .notes-section .list-copy {
-        grid-column: 2;
-      }
     }
 
 
@@ -682,9 +676,9 @@
     <header>
       <button class="mark" type="button" data-theme-button aria-label="Reload color theme">
         <span class="mark-label" aria-hidden="true">LH</span>
-        <svg class="mark-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3.4 12.1 C2.5 9.8 4.9 8.4 7 9.5 C10.2 11.1 12.5 8.3 10.8 6.2 C9.4 4.5 6.7 5.4 7.2 7.3 C7.9 9.8 12.3 8.8 12.2 5.1 C12.1 3.3 10.8 2.5 9.4 2.8"></path>
-          <path d="M11.1 1.7 L9.4 2.8 L11.2 3.9"></path>
+        <svg class="mark-icon" aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.1 15.2 C2.8 12.4 5.7 10.4 8.4 11.8 C12.1 13.7 15.1 10.1 13.1 7.5 C11.4 5.3 7.8 6.5 8.5 9 C9.3 12.2 15.4 11.1 15.1 6.2 C15 3.8 13.2 2.7 11.3 3.1"></path>
+          <path d="M13.5 1.9 L11.3 3.1 L13.1 5"></path>
         </svg>
       </button>
       <nav aria-label="Primary links">
@@ -735,8 +729,7 @@
     <section class="section-grid notes-section" aria-labelledby="notes-title">
       <h2 id="notes-title">Even more</h2>
       <ul class="list">
-        <li>Work recognized by the Anthem Awards, Webby nominations, Society for News Design, Data Journalism Awards, and Information is Beautiful.</li>
-        <li class="list-item-with-label"><strong class="list-label">(Much much more)</strong> <span class="list-copy">Guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</span></li>
+        <li>My work has been recognized by the Anthem Awards, Webby nominations, Society for News Design, Data Journalism Awards, and Information is Beautiful. I have been a guest lecturer and critic with The New School Journalism + Design program, The Cooper Union, and Yale University.</li>
       </ul>
     </section>
 
