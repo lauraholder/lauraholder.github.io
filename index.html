@@ -229,6 +229,7 @@
     header.is-scrolled {
       padding-top: 0;
       padding-bottom: 0;
+      margin-bottom: calc(var(--page-top) + 22px);
       border-bottom: 0;
       background: none;
     }
@@ -768,10 +769,17 @@
       });
 
       var header = document.querySelector("header");
+      var headerCompressed = false;
 
       function updateHeader() {
         if (header) {
-          header.classList.toggle("is-scrolled", window.scrollY > 8);
+          if (!headerCompressed && window.scrollY > 48) {
+            headerCompressed = true;
+            header.classList.add("is-scrolled");
+          } else if (headerCompressed && window.scrollY < 2) {
+            headerCompressed = false;
+            header.classList.remove("is-scrolled");
+          }
         }
       }
 
