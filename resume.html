@@ -9,7 +9,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -104,7 +104,7 @@
       --link-underline: rgba(76, 89, 255, 0.52);
       --nav-link-underline: rgba(76, 89, 255, 0.52);
       --focus-ring: rgba(115, 75, 255, 0.72);
-      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 16%, #b33cff 29%, #ff4fa3 42%, #ff8a2a 54%, #ffe45c 66%, #21c86f 80%, #00a8ff 92%, #2367ff 100%);
+      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 13%, #b33cff 24%, #ff4fa3 34%, #ff8a2a 47%, #ffe45c 61%, #32d66f 76%, #00b7d8 90%, #2367ff 100%);
     }
 
     * {
@@ -173,11 +173,17 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      font-family: "Fredoka", "Work Sans", sans-serif !important;
       -webkit-text-fill-color: transparent;
     }
 
     :root[data-theme="rainbow"] a {
       text-decoration-color: #4d58ff;
+    }
+
+    :root[data-theme="rainbow"] nav {
+      font-size: calc(0.88rem + 1px);
+      letter-spacing: 0.5px;
     }
 
     a {
@@ -371,7 +377,7 @@
 
     .name {
       font-style: italic;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .intro {
@@ -381,6 +387,27 @@
       font-style: italic;
       font-weight: 350;
       line-height: inherit;
+    }
+
+    .intro-rainbow {
+      display: none;
+    }
+
+    :root[data-theme="rainbow"] .intro-default {
+      display: none;
+    }
+
+    :root[data-theme="rainbow"] .intro-rainbow {
+      display: inline;
+    }
+
+    :root[data-theme="rainbow"] .name,
+    :root[data-theme="rainbow"] .intro {
+      font-style: normal;
+    }
+
+    :root[data-theme="rainbow"] .name {
+      font-weight: 700;
     }
 
     .meta-card {
@@ -403,6 +430,10 @@
 
     .meta-card p:last-child {
       margin-bottom: 0;
+    }
+
+    :root[data-theme="rainbow"] .meta-card p {
+      font-size: 1.12rem;
     }
 
     :root[data-theme="mono"] .meta-card {
@@ -611,7 +642,7 @@
       <section class="hero" aria-labelledby="resume-title">
         <div>
           <p class="kicker">Resume</p>
-          <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></h1>
+          <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro"><span class="intro-default">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span><span class="intro-rainbow">is a product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></span></h1>
         </div>
         <aside class="meta-card" aria-label="Resume contact and focus">
           <p><span class="meta-label">Location</span><br>Brooklyn, New York</p>
