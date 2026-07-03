@@ -13,7 +13,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -104,7 +104,7 @@
       --stance-pink-shadow: 16px 18px 14px rgba(60, 98, 255, 0.28);
       --link-underline: rgba(76, 89, 255, 0.52);
       --focus-ring: rgba(115, 75, 255, 0.72);
-      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 16%, #b33cff 29%, #ff4fa3 42%, #ff8a2a 54%, #ffe45c 66%, #21c86f 80%, #00a8ff 92%, #2367ff 100%);
+      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 13%, #b33cff 24%, #ff4fa3 34%, #ff8a2a 47%, #ffe45c 61%, #32d66f 76%, #00b7d8 90%, #2367ff 100%);
     }
 
     * {
@@ -173,11 +173,16 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      font-family: "Fredoka", "Work Sans", sans-serif !important;
       -webkit-text-fill-color: transparent;
     }
 
     :root[data-theme="rainbow"] a {
       text-decoration-color: #4d58ff;
+    }
+
+    :root[data-theme="rainbow"] nav {
+      letter-spacing: 1px;
     }
 
     a {
@@ -370,7 +375,7 @@
 
     .name {
       font-style: italic;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .intro {
@@ -380,6 +385,10 @@
       font-size: 0.72em;
       font-weight: 350;
       line-height: inherit;
+    }
+
+    :root[data-theme="rainbow"] .intro {
+      font-style: normal;
     }
 
     .aside {
@@ -453,6 +462,14 @@
       color: #d9d9d9;
     }
 
+    :root[data-theme="rainbow"] .stance {
+      background: #ffffff;
+      color: #3852ff;
+      -webkit-text-fill-color: currentColor;
+      background-clip: border-box;
+      -webkit-background-clip: border-box;
+    }
+
     .section-grid {
       display: grid;
       grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
@@ -516,7 +533,7 @@
     }
 
     :root[data-theme="rainbow"] .about-portrait img {
-      filter: grayscale(0.86) contrast(1.08) brightness(1.04);
+      filter: grayscale(0.86) saturate(0.38) contrast(0.98) brightness(1.08);
       mix-blend-mode: luminosity;
       opacity: 0.94;
     }
@@ -527,8 +544,8 @@
       inset: 0;
       background: var(--rainbow-gradient);
       background-size: 180% 180%;
-      mix-blend-mode: soft-light;
-      opacity: 0.38;
+      mix-blend-mode: overlay;
+      opacity: 0.14;
       pointer-events: none;
     }
 
