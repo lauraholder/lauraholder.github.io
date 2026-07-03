@@ -227,11 +227,7 @@
       margin-top: calc(-1 * var(--page-top));
       padding-top: var(--page-top);
       padding-bottom: 22px;
-      background:
-        linear-gradient(90deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
-        linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
-        var(--paper);
-      background-attachment: fixed;
+      background: transparent;
       transition: padding-top 180ms ease, padding-bottom 180ms ease;
     }
 
@@ -568,13 +564,10 @@
         width: min(100% - 28px, 700px);
       }
 
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
       nav {
-        justify-content: flex-start;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        margin-left: auto;
       }
 
       .hero,
@@ -595,7 +588,7 @@
       }
 
       nav {
-        gap: 12px;
+        gap: 10px;
       }
 
       h1 {
