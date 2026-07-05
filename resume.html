@@ -9,12 +9,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     (function () {
       try {
         var savedTheme = localStorage.getItem("laura-color-theme");
-        if (savedTheme === "mono" || savedTheme === "knockout" || savedTheme === "rainbow") {
+        if (savedTheme === "mono" || savedTheme === "knockout") {
           document.documentElement.dataset.theme = savedTheme;
         }
       } catch (error) {}
@@ -84,29 +84,6 @@
       --focus-ring: rgba(255, 246, 188, 0.72);
     }
 
-    :root[data-theme="rainbow"] {
-      color-scheme: light;
-      --paper: #ffffff;
-      --ink: #384dff;
-      --soft-ink: #384dff;
-      --quiet: rgba(74, 52, 196, 0.72);
-      --hairline: rgba(77, 88, 255, 0.24);
-      --thin-rule: rgba(77, 88, 255, 0.9);
-      --grid: transparent;
-      --citrus: #ffffff;
-      --pink: #8c3dff;
-      --accent: #93ff89;
-      --white: #ffffff;
-      --major-rule: 6px solid #4d58ff;
-      --citrus-shadow: 24px 10px 20px rgba(0, 184, 255, 0.4);
-      --block-shadow: 16px 18px 14px rgba(94, 64, 255, 0.24);
-      --stance-pink-shadow: 16px 18px 14px rgba(60, 98, 255, 0.28);
-      --link-underline: rgba(76, 89, 255, 0.52);
-      --nav-link-underline: rgba(76, 89, 255, 0.52);
-      --focus-ring: rgba(115, 75, 255, 0.72);
-      --rainbow-gradient: linear-gradient(135deg, #2367ff 0%, #6b4dff 13%, #b33cff 24%, #ff4fa3 34%, #ff8a2a 47%, #ffe45c 61%, #32d66f 76%, #00b7d8 90%, #2367ff 100%);
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -125,69 +102,6 @@
         linear-gradient(180deg, transparent 0 calc(100% - 1px), var(--grid) calc(100% - 1px)) 0 0 / 20px 20px,
         var(--paper);
       overflow-x: hidden;
-    }
-
-    :root[data-theme="rainbow"] body {
-      position: relative;
-      background: var(--paper);
-    }
-
-    :root[data-theme="rainbow"] body::before,
-    :root[data-theme="rainbow"] body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background: var(--rainbow-gradient);
-      background-size: 360px 360px;
-      opacity: 0.24;
-    }
-
-    :root[data-theme="rainbow"] body::before {
-      -webkit-mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
-      mask: linear-gradient(90deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
-    }
-
-    :root[data-theme="rainbow"] body::after {
-      -webkit-mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
-      mask: linear-gradient(180deg, transparent 0 19px, #000 19px 20px) 0 0 / 20px 20px;
-    }
-
-    :root[data-theme="rainbow"] .page {
-      position: relative;
-      z-index: 1;
-    }
-
-    :root[data-theme="rainbow"] h1,
-    :root[data-theme="rainbow"] h2,
-    :root[data-theme="rainbow"] h3,
-    :root[data-theme="rainbow"] p,
-    :root[data-theme="rainbow"] li,
-    :root[data-theme="rainbow"] a,
-    :root[data-theme="rainbow"] strong,
-    :root[data-theme="rainbow"] span,
-    :root[data-theme="rainbow"] time {
-      background: var(--rainbow-gradient);
-      background-size: 220% 220%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-family: "Fredoka", "Work Sans", sans-serif !important;
-      -webkit-text-fill-color: transparent;
-    }
-
-    :root[data-theme="rainbow"] a {
-      text-decoration-color: #4d58ff;
-    }
-
-    :root[data-theme="rainbow"] nav {
-      font-size: calc(0.88rem + 1px);
-      letter-spacing: 0.5px;
-    }
-
-    :root[data-theme="rainbow"] nav a {
-      text-underline-offset: 4px;
     }
 
     a {
@@ -390,27 +304,6 @@
       line-height: inherit;
     }
 
-    .intro-rainbow {
-      display: none;
-    }
-
-    :root[data-theme="rainbow"] .intro-default {
-      display: none;
-    }
-
-    :root[data-theme="rainbow"] .intro-rainbow {
-      display: inline;
-    }
-
-    :root[data-theme="rainbow"] .name,
-    :root[data-theme="rainbow"] .intro {
-      font-style: normal;
-    }
-
-    :root[data-theme="rainbow"] .name {
-      font-weight: 700;
-    }
-
     .meta-card {
       align-self: start;
       border: 0;
@@ -437,10 +330,6 @@
 
     .meta-card p:last-child {
       margin-bottom: 0;
-    }
-
-    :root[data-theme="rainbow"] .meta-card p {
-      font-size: 1.12rem;
     }
 
     :root[data-theme="mono"] .meta-card {
@@ -651,7 +540,7 @@
       <section class="hero" aria-labelledby="resume-title">
         <div>
           <p class="kicker">Resume</p>
-          <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro"><span class="intro-default">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span><span class="intro-rainbow">is a product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></span></h1>
+          <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></h1>
         </div>
         <aside class="meta-card" aria-label="Resume contact and focus">
           <p><span class="meta-label">Location</span><br>Brooklyn, New York</p>
@@ -819,7 +708,7 @@
   </div>
   <script>
     (function () {
-      var themes = ["pink", "mono", "knockout", "rainbow"];
+      var themes = ["pink", "mono", "knockout"];
       var storageKey = "laura-color-theme";
       var root = document.documentElement;
 
