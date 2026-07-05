@@ -245,15 +245,16 @@
     :root[data-theme="knockout"] nav a {
       display: inline-block;
       padding: 0 0.12em;
-      background: var(--soft-ink);
-      color: #111111;
-      text-decoration-color: transparent;
-    }
-
-    :root[data-theme="knockout"] nav a:hover {
       background: #111111;
       color: var(--soft-ink);
       text-decoration-color: var(--soft-ink);
+    }
+
+    :root[data-theme="knockout"] nav a:hover,
+    :root[data-theme="knockout"] nav a:focus-visible {
+      background: var(--soft-ink);
+      color: #111111;
+      text-decoration-color: transparent;
     }
 
     main {
