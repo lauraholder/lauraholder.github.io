@@ -290,11 +290,15 @@
       font-family: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       font-size: clamp(2.25rem, 5.4vw, 5.1rem);
       letter-spacing: 0;
-      line-height: 0.82;
+      line-height: 0.78;
     }
 
-    .name {
+    #page-title .name,
+    #page-title .intro {
       font-size: 0.72em;
+    }
+
+    #page-title .name {
       font-style: italic;
       font-weight: 500;
     }
@@ -303,9 +307,8 @@
       color: var(--soft-ink);
       font-family: inherit;
       font-style: italic;
-      font-size: 0.72em;
       font-weight: 350;
-      line-height: 0.82;
+      line-height: inherit;
     }
 
     .aside {
@@ -392,6 +395,16 @@
       min-width: 0;
     }
 
+    .visually-hidden {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
     h2 {
       color: var(--quiet);
       font-family: "Space Grotesk", "Work Sans", sans-serif;
@@ -409,7 +422,7 @@
 
     .about-portrait {
       width: min(170px, 100%);
-      margin: 24px 0 0;
+      margin: 0;
       overflow: hidden;
       background: var(--paper);
       transform: rotate(-1.3deg);
@@ -548,7 +561,7 @@
 
       .about-section .about-portrait {
         width: 100%;
-        margin: 18px 0 0;
+        margin: 0;
       }
 
       .about-section .copy {
@@ -610,21 +623,17 @@
 
     <section class="section-grid about-section" aria-labelledby="about-title">
       <div class="section-label">
-        <h2 id="about-title">More</h2>
+        <h2 id="about-title" class="visually-hidden">About</h2>
         <figure class="about-portrait" aria-label="Laura Holder portrait in pink monotone">
           <img src="assets/laura-about.png" alt="">
         </figure>
       </div>
       <div class="copy">
         <p>
-          I shape and ship digital product experiences for publications and platforms where editorial ambition,
-          product systems, business needs, and internal workflows intersect, spanning product and editorial strategy,
-          research synthesis, UX/UI, visual design, design systems, and team leadership.
-        </p>
-        <p>
-          I'm especially interested in tools that help people create great work with less friction: publishing workflows,
-          modular story formats, agentic workstreams, and product language that gives teams a shared way to provide
-          solutions.
+          As a product designer and design leader, I craft innovative and resonant experiences that inspire engagement
+          and loyalty in users and deliver measurable value to businesses. I take a multidisciplinary and collaborative
+          approach to shaping and shipping cogent, data-rich, and often award-winning interaction experiences through
+          strategy, research, and design.
         </p>
       </div>
     </section>
