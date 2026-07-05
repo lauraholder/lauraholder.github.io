@@ -223,7 +223,7 @@
     nav a {
       text-decoration-color: transparent;
       text-underline-offset: 4px;
-      transition: color 160ms ease, text-decoration-color 160ms ease;
+      transition: background-color 160ms ease, color 160ms ease, text-decoration-color 160ms ease;
     }
 
     nav a:hover,
@@ -240,6 +240,18 @@
       background: none;
       color: var(--accent);
       text-decoration-color: currentColor;
+    }
+
+    :root:not([data-theme]) header.is-scrolled nav a {
+      color: var(--accent);
+      text-decoration-color: transparent;
+    }
+
+    :root:not([data-theme]) header.is-scrolled nav a:hover,
+    :root:not([data-theme]) header.is-scrolled nav a:focus-visible {
+      background: var(--accent);
+      color: var(--ink);
+      text-decoration-color: transparent;
     }
 
     :root[data-theme="knockout"] nav a {
