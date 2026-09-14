@@ -10,12 +10,13 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--acid); font-family: var(--serif); }
 .landing { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; background: var(--acid); }
-.site-nav { position: fixed; z-index: 10; top: clamp(1.5rem, 5vw, 4rem); right: var(--page-gutter); left: var(--page-gutter); display: grid; gap: 0.35rem; padding: 0.25rem 0 0.5rem; background: transparent; }
+.site-nav { position: fixed; z-index: 10; top: clamp(1.5rem, 5vw, 4rem); left: calc(var(--page-gutter) - 0.6rem); display: grid; gap: 0.35rem; width: clamp(9.25rem, 18vw, 11rem); padding: 0.5rem 0.6rem 0.65rem; background: transparent; transition: background-color 280ms ease; }
+.site-nav.is-scrolling-up, .site-nav:hover, .site-nav:focus-within { background: rgb(255 255 255 / 90%); }
 a { color: inherit; text-underline-offset: 0.28em; }
-.site-nav span { display: block; width: max-content; background: rgb(249 255 136 / 20%); transition: padding-right 180ms ease, background-color 180ms ease; }
+.site-nav span { display: block; width: max-content; background: transparent; transition: padding-right 180ms ease, background-color 180ms ease; }
 .site-nav span:hover, .site-nav span:has(a:focus-visible) { padding: 0 8px 0 0; background: #ffb3e6; }
 .site-nav span a { display: inline-block; transition: transform 180ms ease; }
-.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { transform: translateX(4px); }
+.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { transform: translateX(4px); text-decoration-color: transparent; }
 .site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
 .mark { position: absolute; width: 124vw; max-width: none; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); }
