@@ -39,6 +39,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
 .job-card > p:last-child { max-width: 17rem; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; line-height: 1.35; }
 .recognition { max-width: 60rem; margin: 3rem 0 0; font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.35; }
+.resume-link { margin: 1.25rem 0 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
 .recognition strong { font-weight: 700; }
 
 @media (min-width: 600px) {
@@ -48,7 +49,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 }
 
 @media (min-width: 900px) {
-  .mark { width: min(62vw, 1100px); left: 50%; bottom: 3%; transform: translateX(-50%); }
+  .mark { width: min(57vw, 1012px); left: 50%; bottom: 3%; transform: translateX(-50%); }
   .signature { left: 55%; bottom: 12%; }
   .job-grid { grid-template-columns: repeat(3, 1fr); }
 }
