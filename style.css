@@ -25,6 +25,7 @@ a { color: inherit; text-underline-offset: 0.28em; }
 h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-height: 0.9; }
 .landing-footer { position: absolute; z-index: 4; right: var(--page-gutter); bottom: clamp(1.5rem, 4vw, 3.5rem); left: var(--page-gutter); display: flex; align-items: center; justify-content: space-between; gap: clamp(0.5rem, 5vw, 4rem); padding-top: 0.75rem; border-top: 2px solid var(--ink); font-size: clamp(0.85rem, 1.5vw, 1.15rem); }
 .landing-footer p, .landing-footer a { flex: 0 1 auto; margin: 0; white-space: nowrap; }
+.landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .about-placeholder { min-height: 0; padding: 5rem var(--page-gutter) 2rem; font-size: 1.25rem; }
 .about-placeholder h1, .experience h2 { max-width: none; margin: 0; font-size: clamp(1.65rem, 4.75vw, 3.9rem); font-weight: 400; line-height: 1.08; }
