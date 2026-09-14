@@ -3,23 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resume | Laura T Holder</title>
-  <meta name="description" content="Browser-readable resume for Laura T Holder, product designer and design leader.">
-  <meta name="theme-color" content="#ffffff">
+  <title>Resume | Laura Holder</title>
+  <meta name="description" content="Browser-readable resume for Laura Holder, product designer and design leader.">
+  <meta name="theme-color" content="#f9ff88">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
-    (function () {
-      try {
-        var savedTheme = localStorage.getItem("laura-color-theme");
-        if (savedTheme === "mono" || savedTheme === "knockout") {
-          document.documentElement.dataset.theme = savedTheme;
-        }
-      } catch (error) {}
-    })();
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
@@ -301,7 +291,7 @@
       font-size: clamp(2.25rem, 5.4vw, 5.1rem);
       font-weight: 400;
       letter-spacing: 0;
-      line-height: 0.88;
+      line-height: 0.76;
     }
 
     #resume-title .name,
@@ -470,6 +460,31 @@
       margin-bottom: 0;
     }
 
+    .two-column-list {
+      display: block;
+      columns: 2;
+      column-gap: clamp(28px, 5vw, 64px);
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .two-column-list li {
+      break-inside: avoid;
+      border-bottom: 1px dotted var(--thin-rule);
+      padding-bottom: 0.65em;
+      margin-bottom: 0.65em;
+    }
+
+    .two-column-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .stack-list.two-column-list {
+      display: block;
+      gap: 0;
+    }
+
     .stack-list {
       display: grid;
       gap: 12px;
@@ -518,6 +533,10 @@
       .competencies {
         columns: 1;
       }
+
+      .two-column-list {
+        columns: 1;
+      }
     }
 
     @media (max-width: 520px) {
@@ -561,22 +580,20 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="resume.css?v=acid-resume-v8">
 </head>
 <body>
+  <div class="resume-hover-overlay" aria-hidden="true"></div>
   <div class="page">
     <header>
-      <button class="mark" type="button" data-theme-button aria-label="Reload color theme">
-        <span class="mark-label" aria-hidden="true">LH</span>
-        <svg class="mark-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5.2 17.6 C3.7 14.8 5.8 11.4 9.2 12.1 C12.1 12.7 14.2 10.4 13.1 8.1 C12.1 6 8.7 6.3 7.8 8.7 C6.9 11.1 9.1 13.1 11.7 12.3 C15.3 11.1 17 7.1 14.7 4.6 C13.5 3.3 11.6 3.3 9.9 4.2"></path>
-          <path d="M13 2.5 L9.9 4.2"></path>
-          <path d="M9.9 4.2 L12.3 6.6"></path>
+      <a class="mark" href="index.html" aria-label="Home">
+        <img class="mark-logo" src="assets/laura-mark.svg" alt="">
+        <svg class="home-glyph" aria-hidden="true" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="square" stroke-linejoin="miter">
+          <path d="M3 11 L12 2 L21 11 V24 H3 Z"></path>
         </svg>
-      </button>
+      </a>
       <nav aria-label="Resume links">
-        <a href="index.html">Home</a>
-        <a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a>
-        <a href="LauraTHolder-resume-CV-2025.pdf">Download PDF</a>
+        <a href="https://lauraholder.com/LauraTHolder-resume-CV-2025.pdf">Download PDF</a>
       </nav>
     </header>
 
@@ -586,11 +603,6 @@
           <p class="kicker">Resume</p>
           <h1 id="resume-title"><span class="name">Laura T Holder</span> <span class="intro">Product designer and design leader shaping publishing platforms, design systems, editorial tools, and award-winning interaction experiences.</span></h1>
         </div>
-        <aside class="meta-card" aria-label="Resume contact and focus">
-          <p><span class="meta-label">Location</span><br>Brooklyn, New York</p>
-          <p><span class="meta-label">Contact</span><br><a href="https://www.linkedin.com/in/lauraholder/">LinkedIn</a></p>
-          <p><span class="meta-label">PDF</span><br><a href="LauraTHolder-resume-CV-2025.pdf">Download my resume</a></p>
-        </aside>
       </section>
 
       <section class="resume-grid" aria-labelledby="profile-title">
@@ -598,8 +610,8 @@
         <div class="body">
           <p>
             I shape and ship digital product experiences for publications and platforms, often where
-            editorial ambition, product systems, business needs, and internal workflows intersect. My
-            work spans product and editorial strategy, research synthesis, UX/UI, visual design,
+            editorial ambition, product systems, business needs, and internal workflows intersect.<br>
+            My work spans product and editorial strategy, research synthesis, UX/UI, visual design,
             content strategy, design systems, and team leadership, with a focus on collaborative,
             data-informed experiences that help people create great work with less friction and
             deliver measurable value to organizations.
@@ -622,7 +634,7 @@
             <li>Agile / Scrum</li>
             <li>Figma design and prototyping</li>
             <li>Adobe Creative Cloud</li>
-            <li>Maze and research tools</li>
+            <li>Design Agent Development</li>
             <li>Codex, Claude Code, and agentic supported workflows</li>
           </ul>
         </div>
@@ -636,7 +648,7 @@
             <div>
               <h3>VP Product Design, Hearst Magazines</h3>
               <ul>
-                <li>Lead product design for systems and publishing workflows that support more than 50 US and International brand magazine sites.</li>
+                <li>Lead product design for systems and publishing workflows that support more than 50 US and International brand magazine sites. Currently writing Design Agents skills and constitution files for product development AI harness</li>
               </ul>
             </div>
           </article>
@@ -726,10 +738,10 @@
       <section class="resume-grid" aria-labelledby="awards-title">
         <h2 id="awards-title">Awards & affiliations</h2>
         <div class="body">
-          <ul class="stack-list">
-            <li>2023 Anthem Award and Webby nomination for Language, Please</li>
-            <li>Society for News Design Gold Medal, Silver Medal, and Awards of Excellence</li>
-            <li>Data Journalism Best Visualization of the Year and Information is Beautiful award recognition</li>
+          <ul class="stack-list two-column-list">
+            <li><mark class="resume-highlight">2023 Anthem Award</mark> and Webby nomination for Language, Please</li>
+            <li><mark class="resume-highlight">Society for News Design Gold Medal, Silver Medal, and Awards of Excellence</mark></li>
+            <li>Data Journalism <mark class="resume-highlight">Best Visualization of the Year</mark> and Information is Beautiful award recognition</li>
             <li>Society for News Design member since 2016</li>
             <li>Photography exhibited at Jen Bekman Gallery and published in The New York Times, Good, Gawker, Gothamist, and other publications</li>
             <li>Guest lecturer at The New School Journalism + Design program; guest capstone thesis critic at The Cooper Union and Yale University</li>
@@ -740,7 +752,7 @@
       <section class="resume-grid" aria-labelledby="education-title">
         <h2 id="education-title">Education</h2>
         <div class="body">
-          <ul class="stack-list">
+          <ul class="stack-list two-column-list">
             <li>Bachelor of Fine Arts, Iowa State University, 1991</li>
             <li>Furniture Design Studies, University of California at Berkeley, 1993</li>
             <li>Furniture Design Scholarship, Anderson Ranch Arts Center, 1996</li>
@@ -753,39 +765,22 @@
   </div>
   <script>
     (function () {
-      var themes = ["pink", "mono", "knockout"];
-      var storageKey = "laura-color-theme";
-      var root = document.documentElement;
-
-      function currentTheme() {
-        return themes.indexOf(root.dataset.theme) > -1 ? root.dataset.theme : "pink";
-      }
-
-      function applyTheme(theme) {
-        if (theme === "pink") {
-          root.removeAttribute("data-theme");
-        } else {
-          root.dataset.theme = theme;
-        }
-
-        try {
-          localStorage.setItem(storageKey, theme);
-        } catch (error) {}
-      }
-
-      document.querySelectorAll("[data-theme-button]").forEach(function (button) {
-        button.addEventListener("click", function () {
-          var current = currentTheme();
-          var choices = themes.filter(function (theme) {
-            return theme !== current;
-          });
-          var nextTheme = choices[Math.floor(Math.random() * choices.length)] || "pink";
-          applyTheme(nextTheme);
-        });
-      });
-
+      var mark = document.querySelector(".mark");
       var header = document.querySelector("header");
       var headerCompressed = false;
+
+      function setMarkHovering(isHovering) {
+        document.body.classList.toggle("resume-hovering", isHovering);
+      }
+
+      if (mark) {
+        mark.addEventListener("mouseenter", function () { setMarkHovering(true); });
+        mark.addEventListener("mouseleave", function () { setMarkHovering(false); });
+        mark.addEventListener("focusin", function () { setMarkHovering(true); });
+        mark.addEventListener("focusout", function (event) {
+          if (!mark.contains(event.relatedTarget)) setMarkHovering(false);
+        });
+      }
 
       function updateHeader() {
         if (header) {
