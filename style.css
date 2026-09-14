@@ -32,7 +32,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .experience h2 { margin-bottom: 3rem; }
 .job-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
 .job-card { display: grid; grid-template-rows: 2.2rem minmax(5rem, 1fr) auto; min-height: 16rem; padding: 1.2rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.job-grid { margin-inline: -1.2rem; }
+.job-grid { margin-inline: 0; }
 .current-card { background: #ffb3e6; }
 .job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
@@ -49,6 +49,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
   .signature { left: 56%; bottom: 16%; }
   .job-grid { grid-template-columns: repeat(2, 1fr); }
+  .job-grid { margin-inline: -1.2rem; }
 }
 
 @media (min-width: 900px) {
@@ -56,12 +57,18 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .signature { left: 55%; bottom: 12%; }
   .job-grid { grid-template-columns: repeat(3, 1fr); }
   .job-card h3 { max-width: none; }
+  .recognition { max-width: 47rem; }
+  .site-nav a { font-size: 0.7rem; }
 }
 
 @media (max-width: 599px) {
+  .site-nav { left: calc(var(--page-gutter) + 0.6rem); }
+  .landing-footer { right: var(--page-gutter); left: var(--page-gutter); padding-right: 1.2rem; padding-left: 1.2rem; }
   .landing-footer { gap: 1rem; }
   .landing-footer p:last-child { display: none; }
   .about-placeholder { min-height: 0; }
+  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .recognition, .experience > .resume-link { margin-right: 1.2rem; margin-left: 1.2rem; }
+  .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
