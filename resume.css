@@ -15,12 +15,12 @@ body:has(.mark:hover) .resume-hover-overlay, body:has(.mark:focus-visible) .resu
 body:has(.mark:hover) header, body:has(.mark:focus-visible) header, .resume-hovering header { z-index: 20 !important; background: transparent !important; border-bottom-color: transparent !important; }
 body:has(.mark:hover) header nav, body:has(.mark:focus-visible) header nav, .resume-hovering header nav { opacity: 0 !important; visibility: hidden !important; }
 .page { width: min(1180px, calc(100% - 48px)) !important; padding: 2rem 0 5rem !important; }
-header { position: sticky; top: 0; z-index: auto !important; margin: -2rem 0 0 !important; padding: 2rem 0 1.25rem !important; border-bottom: 0 !important; background: rgb(255 255 255 / 80%) !important; }
-header.is-scrolled { margin-bottom: 2rem !important; padding: 0 !important; background: rgb(255 255 255 / 80%) !important; }
+header { position: sticky; top: 0; z-index: auto !important; margin: -2rem 0 0 !important; padding: 2rem 0 1.25rem !important; border-bottom: 0 !important; background: transparent !important; }
+header.is-scrolled { margin-bottom: 2rem !important; padding: 0 !important; background: transparent !important; }
 .mark { position: relative; z-index: 20 !important; width: 2.8rem !important; height: 2.8rem !important; border: var(--mark-border-width) solid var(--ink) !important; border-radius: 0 !important; box-shadow: none !important; color: var(--ink) !important; background: var(--acid) !important; font-family: var(--mono) !important; font-size: .7rem !important; }
 .mark-logo, .home-glyph { grid-area: 1 / 1; transition: opacity 120ms ease, transform 160ms ease; }
 .mark-logo { display: block !important; width: 1.8rem !important; height: 1.8rem !important; max-width: 1.8rem !important; max-height: 1.8rem !important; object-fit: contain; opacity: 1 !important; visibility: visible !important; transform: scale(.82) rotate(-9deg); }
-.home-glyph { position: relative; display: block !important; width: 1.3rem; height: calc(1.3rem - 1px); color: var(--ink) !important; stroke-width: var(--mark-border-width); opacity: 0 !important; visibility: hidden !important; transform: scale(.7); }
+.home-glyph { position: relative; display: block !important; width: 1.3rem; height: calc(1.3rem - 1px); color: var(--ink) !important; stroke: currentColor !important; stroke-width: var(--mark-border-width) !important; vector-effect: non-scaling-stroke; shape-rendering: crispEdges; opacity: 0 !important; visibility: hidden !important; transform: scale(.7); }
 .mark:hover .mark-logo, .mark:focus-visible .mark-logo { opacity: 0 !important; visibility: hidden !important; transform: scale(.72) rotate(-9deg); }
 .mark:hover .home-glyph, .mark:focus-visible .home-glyph { opacity: 1 !important; visibility: visible !important; transform: scale(1); }
 .resume-hovering .mark-logo { opacity: 0 !important; visibility: hidden !important; transform: scale(.72) rotate(-9deg); }
@@ -30,6 +30,7 @@ nav { display: flex !important; flex-wrap: wrap; gap: 1rem 1.5rem !important; }
 nav a, a { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: normal !important; text-decoration-style: dotted !important; text-decoration-color: var(--ink) !important; text-underline-offset: .3em; }
 .mark, .mark:hover, .mark:focus-visible { text-decoration: none !important; }
 nav a:hover, a:hover { color: var(--ink) !important; background: none !important; }
+header nav a[href*="resume-CV-2025.pdf"]:hover, header nav a[href*="resume-CV-2025.pdf"]:focus-visible { padding: 2px !important; background: #ffb3e6 !important; color: var(--ink) !important; text-decoration-color: transparent !important; }
 .hero { display: grid !important; grid-template-columns: 1fr !important; gap: 4rem !important; padding: 5rem 0 6rem !important; border-bottom: 1px solid var(--ink) !important; }
 .kicker, .resume-grid > h2, .meta-label { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: .12em !important; text-transform: uppercase !important; }
 .kicker { margin-bottom: 1.25rem !important; }
@@ -40,16 +41,21 @@ nav a:hover, a:hover { color: var(--ink) !important; background: none !important
 .meta-card p { margin: 0 0 1.5rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: 1.15rem !important; line-height: 1.15 !important; }
 .meta-card p:last-child { margin-bottom: 0 !important; }
 .resume-grid { display: grid !important; grid-template-columns: minmax(10rem, .55fr) minmax(0, 1.45fr) !important; gap: 3rem !important; padding: 3.5rem 0 !important; border-bottom: 1px solid var(--ink) !important; }
+section[aria-labelledby="experience-title"] { padding-top: calc(3.5rem - 8px) !important; }
+section[aria-labelledby="education-title"] { border-bottom: 0 !important; }
 .resume-grid > h2 { margin: 0 !important; }
 .body { color: var(--ink) !important; font-family: var(--serif) !important; font-size: 1.15rem !important; line-height: 1.45 !important; }
 .body p { max-width: 48rem; margin: 0 !important; }
+.body p + p { margin-top: 1.45em !important; }
 .competencies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 2rem; margin: 0 !important; padding: 0 !important; list-style: none !important; }
 .competencies li, .stack-list li { padding: .65rem 0 !important; border-bottom: 1px solid var(--rule) !important; }
+.competencies li:last-child, .stack-list li:last-child { border-bottom: 0 !important; }
+.stack-list.two-column-list > li:nth-last-child(-n + 2) { border-bottom: 0 !important; }
 .resume-highlight { background: var(--acid); color: inherit; padding: 0 .08em; }
 .role { display: grid !important; grid-template-columns: 7rem minmax(0, 1fr) !important; gap: 1.25rem !important; padding: 0 0 2rem !important; margin: 0 0 2rem !important; border-top: 0 !important; border-bottom: 1px solid var(--rule) !important; }
 .role:last-child { margin-bottom: 0 !important; border-bottom: 0 !important; }
-.role time { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; letter-spacing: .05em; text-transform: uppercase; }
-.role h3 { margin: 0 0 .7rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: clamp(1.35rem, 2.5vw, 2rem) !important; font-weight: 700 !important; line-height: 1.05 !important; }
+.role time { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: .12em !important; text-transform: uppercase; }
+.role h3 { margin: 0 0 .7rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: clamp(1.35rem, 2.5vw, 2rem) !important; font-weight: 700 !important; line-height: 1.1 !important; }
 .role ul { margin: 0 !important; padding-left: 1.2rem !important; }
 .role li { margin: .45rem 0 !important; }
 .stack-list { margin: 0 !important; padding: 0 !important; list-style: none !important; }

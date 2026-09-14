@@ -13,10 +13,10 @@ body { margin: 0; color: var(--ink); background: var(--acid); font-family: var(-
 .site-nav { position: fixed; z-index: 10; top: clamp(1.5rem, 5vw, 4rem); right: var(--page-gutter); left: var(--page-gutter); display: grid; gap: 0.35rem; padding: 0.25rem 0 0.5rem; background: transparent; }
 a { color: inherit; text-underline-offset: 0.28em; }
 .site-nav span { display: block; width: max-content; background: rgb(249 255 136 / 20%); transition: padding-right 180ms ease, background-color 180ms ease; }
-.site-nav span:hover, .site-nav span:has(a:focus-visible) { padding: 0 4px 0 0; background: #ffb3e6; }
+.site-nav span:hover, .site-nav span:has(a:focus-visible) { padding: 0 8px 0 0; background: #ffb3e6; }
 .site-nav span a { display: inline-block; transition: transform 180ms ease; }
 .site-nav span:hover a, .site-nav span:has(a:focus-visible) a { transform: translateX(4px); }
-.site-nav a { display: inline; width: auto; padding: 0; font-size: 0.7rem; line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
+.site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
 .mark { position: absolute; width: 124vw; max-width: none; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); }
 .signature { position: absolute; z-index: 2; left: 54%; bottom: 18%; font-family: var(--script); font-size: clamp(2rem, 7vw, 4.5rem); transform: rotate(-5deg); }
@@ -30,16 +30,18 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .experience { padding: 2rem var(--page-gutter) 7rem; background: var(--acid); }
 .experience h2 { margin-bottom: 3rem; }
 .job-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.job-card { display: grid; grid-template-rows: 2.2rem minmax(5rem, 1fr) auto; min-height: 16rem; padding: 1.5rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-.job-grid { margin-inline: -1.5rem; }
+.job-card { display: grid; grid-template-rows: 2.2rem minmax(5rem, 1fr) auto; min-height: 16rem; padding: 1.2rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.job-grid { margin-inline: -1.2rem; }
 .current-card { background: #ffb3e6; }
-.job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
-.job-status.current { display: flex; align-items: center; padding: 0.3rem 0.5rem; background: transparent; color: var(--ink); }
+.job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
 .job-card h3 { align-self: start; max-width: 16rem; margin: 0; font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
-.job-card > p:last-child { max-width: 17rem; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; line-height: 1.35; }
+.job-card .job-title { max-width: 17rem; margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
 .recognition { max-width: 60rem; margin: 3rem 0 0; font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.35; }
-.resume-link { margin: 1.25rem 0 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+.resume-link { margin: 1.25rem 0 0; }
+.resume-link a { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .7rem; font-weight: 400; line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; }
+.resume-link a:hover, .resume-link a:focus-visible { padding: 2px; background: #ffb3e6; color: var(--ink); text-decoration-color: transparent; }
 .recognition strong { font-weight: 700; }
 
 @media (min-width: 600px) {
@@ -52,6 +54,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .mark { width: min(52.5vw, 930px); left: 50%; bottom: 3%; transform: translateX(-50%); }
   .signature { left: 55%; bottom: 12%; }
   .job-grid { grid-template-columns: repeat(3, 1fr); }
+  .job-card h3 { max-width: none; }
 }
 
 @media (max-width: 599px) {
