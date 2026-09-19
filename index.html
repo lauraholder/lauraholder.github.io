@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=landing-vector-v10" />
+    <link rel="stylesheet" href="style.css?v=landing-vector-v14" />
   </head>
   <body>
     <main class="landing" id="home">
@@ -39,8 +39,8 @@
       <h2 id="experience-title">Great product work is built through collaboration across stakeholders, platforms, product teams, and multidisciplinary design teams.</h2>
       <div class="job-grid">
         <article class="job-card current-card"><p class="job-status current">Present</p><h3>Hearst</h3><p class="job-title">VP Product Design, Hearst Magazines</p></article>
-        <article class="job-card"><p class="job-status">Prior</p><h3>Vox Media</h3><p class="job-title">Design Director &amp; Principal Product Designer</p></article>
-        <article class="job-card"><p class="job-status">Prior</p><h3>The Wall Street Journal</h3><p class="job-title">Graphics Design Director / Product Design Director</p></article>
+        <article class="job-card"><p class="job-status">Prior</p><h3>Vox Media</h3><p class="job-title">Design Director<br>Principal Product Designer</p></article>
+        <article class="job-card"><p class="job-status">Prior</p><h3>The Wall Street Journal</h3><p class="job-title">Graphics Design Director<br>Product Design Director</p></article>
         <article class="job-card"><p class="job-status">Prior</p><h3>Reuters Global Media</h3><p class="job-title">Product Design Director</p></article>
         <article class="job-card"><p class="job-status">Prior</p><h3>The New York Times</h3><p class="job-title">Interaction Designer</p></article>
         <article class="job-card"><p class="job-status">Prior</p><h3>CBS News</h3><p class="job-title">Associate Creative Director</p></article>
@@ -50,6 +50,27 @@
     </section>
     <script>
       (() => {
+        const mark = document.querySelector('.mark');
+        const markAssets = [
+          'assets/laura-mark.svg',
+          'assets/L_rainbow_pencil.png',
+          'assets/L_brush_marker.png'
+        ];
+        const markFrame = { width: 856, height: 825 };
+        const signature = document.querySelector('.signature');
+        const selectedAsset = markAssets[Math.floor(Math.random() * markAssets.length)];
+
+        mark.src = selectedAsset;
+        signature.classList.toggle('is-rainbow', selectedAsset === 'assets/L_rainbow_pencil.png');
+
+        const syncMarkFrame = () => {
+          const width = mark.getBoundingClientRect().width;
+          if (width) mark.style.height = `${width * markFrame.height / markFrame.width}px`;
+        };
+
+        syncMarkFrame();
+        window.addEventListener('resize', syncMarkFrame);
+
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
 

@@ -20,11 +20,11 @@ header.is-scrolled { margin-bottom: 2rem !important; padding: 0 !important; back
 .mark { position: relative; z-index: 20 !important; width: 2.8rem !important; height: 2.8rem !important; border: var(--mark-border-width) solid var(--ink) !important; border-radius: 0 !important; box-shadow: none !important; color: var(--ink) !important; background: var(--acid) !important; font-family: var(--mono) !important; font-size: .7rem !important; }
 .mark-logo, .home-glyph { grid-area: 1 / 1; transition: opacity 120ms ease, transform 160ms ease; }
 .mark-logo { display: block !important; width: 1.8rem !important; height: 1.8rem !important; max-width: 1.8rem !important; max-height: 1.8rem !important; object-fit: contain; opacity: 1 !important; visibility: visible !important; transform: scale(.82) rotate(-9deg); }
-.home-glyph { position: relative; display: block !important; width: 1.3rem; height: calc(1.3rem - 1px); color: var(--ink) !important; stroke: currentColor !important; stroke-width: var(--mark-border-width) !important; vector-effect: non-scaling-stroke; shape-rendering: crispEdges; opacity: 0 !important; visibility: hidden !important; transform: scale(.7); }
+.home-glyph { position: relative; display: block !important; width: 1.3rem; height: calc(1.3rem - 1px); color: var(--ink) !important; fill: transparent; stroke: currentColor !important; stroke-width: var(--mark-border-width) !important; vector-effect: non-scaling-stroke; shape-rendering: crispEdges; opacity: 0 !important; visibility: hidden !important; transform: scale(.7); }
 .mark:hover .mark-logo, .mark:focus-visible .mark-logo { opacity: 0 !important; visibility: hidden !important; transform: scale(.72) rotate(-9deg); }
-.mark:hover .home-glyph, .mark:focus-visible .home-glyph { opacity: 1 !important; visibility: visible !important; transform: scale(1); }
+.mark:hover .home-glyph, .mark:focus-visible .home-glyph { opacity: 1 !important; visibility: visible !important; transform: scale(1); fill: var(--ink); }
 .resume-hovering .mark-logo { opacity: 0 !important; visibility: hidden !important; transform: scale(.72) rotate(-9deg); }
-.resume-hovering .home-glyph { opacity: 1 !important; visibility: visible !important; transform: scale(1); }
+.resume-hovering .home-glyph { opacity: 1 !important; visibility: visible !important; transform: scale(1); fill: var(--ink); }
 .mark-label, .mark-icon { display: none !important; }
 nav { display: flex !important; flex-wrap: wrap; gap: 1rem 1.5rem !important; }
 nav a, a { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: normal !important; text-decoration-style: dotted !important; text-decoration-color: var(--ink) !important; text-underline-offset: .3em; }
@@ -47,15 +47,16 @@ section[aria-labelledby="education-title"] { border-bottom: 0 !important; }
 .body { color: var(--ink) !important; font-family: var(--serif) !important; font-size: 1.15rem !important; line-height: 1.45 !important; }
 .body p { max-width: 48rem; margin: 0 !important; }
 .body p + p { margin-top: 1.45em !important; }
-.competencies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 2rem; margin: 0 !important; padding: 0 !important; list-style: none !important; }
+.competencies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; margin: 0 !important; padding: 0 !important; list-style: none !important; }
 .competencies li, .stack-list li { padding: .65rem 0 !important; border-bottom: 1px solid var(--rule) !important; }
+.competencies li { padding: .4rem 0 !important; }
 .competencies li:last-child, .stack-list li:last-child { border-bottom: 0 !important; }
 .stack-list.two-column-list > li:nth-last-child(-n + 2) { border-bottom: 0 !important; }
 .resume-highlight { background: var(--acid); color: inherit; padding: 0 .08em; }
 .role { display: grid !important; grid-template-columns: 7rem minmax(0, 1fr) !important; gap: 1.25rem !important; padding: 0 0 2rem !important; margin: 0 0 2rem !important; border-top: 0 !important; border-bottom: 1px solid var(--rule) !important; }
 .role:last-child { margin-bottom: 0 !important; border-bottom: 0 !important; }
 .role time { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: .12em !important; text-transform: uppercase; }
-.role h3 { margin: 0 0 .7rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: clamp(1.35rem, 2.5vw, 2rem) !important; font-weight: 700 !important; line-height: 1.1 !important; }
+.role h3 { margin: 0 0 .7rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: clamp(1.35rem, 2.5vw, 2rem) !important; font-weight: 700 !important; line-height: 1.21 !important; }
 .role ul { margin: 0 !important; padding-left: 1.2rem !important; }
 .role li { margin: .45rem 0 !important; }
 .stack-list { margin: 0 !important; padding: 0 !important; list-style: none !important; }
