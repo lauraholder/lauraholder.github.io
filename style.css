@@ -60,7 +60,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 @media (min-width: 900px) {
   .mark { width: min(52.5vw, 930px); left: 50%; bottom: 3%; transform: translateX(-50%); }
   .signature { left: 55%; bottom: 12%; }
-  .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) + 1rem + 4px); }
+  .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { margin-inline: -2rem; }
   .job-card { padding: 2.5rem; }
   .recognition { max-width: 47rem; }
