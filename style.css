@@ -10,13 +10,15 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--acid); font-family: var(--serif); }
 .landing { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; background: var(--acid); }
-.site-nav { position: fixed; z-index: 10; top: clamp(1.5rem, 5vw, 4rem); left: calc(var(--page-gutter) - 0.6rem); display: grid; gap: 0.35rem; width: clamp(9.25rem, 18vw, 11rem); padding: 0.5rem 0.6rem 0.65rem; background: transparent; transition: background-color 280ms ease; }
-.site-nav.is-scrolling-up, .site-nav:hover, .site-nav:focus-within { background: rgb(255 255 255 / 90%); }
+.site-nav { position: fixed; z-index: 10; top: clamp(1.5rem, 5vw, 4rem); left: calc(var(--page-gutter) - 0.6rem); display: grid; gap: 0.35rem; width: clamp(9.25rem, 18vw, 11rem); padding: 0.5rem 0.6rem 0.65rem; background: transparent; transition: opacity 180ms ease, background-color 280ms ease, visibility 0s linear 0s; }
+.site-nav.is-scrolling-down { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 180ms ease, background-color 280ms ease, visibility 0s linear 180ms; }
+.site-nav.is-scrolling-up { background: rgb(255 255 255 / 90%); }
 a { color: inherit; text-underline-offset: 0.28em; }
-.site-nav span { display: block; width: max-content; background: transparent; transition: padding-right 180ms ease, background-color 180ms ease; }
-.site-nav span:hover, .site-nav span:has(a:focus-visible) { padding: 0 8px 0 0; background: #ffb3e6; }
-.site-nav span a { display: inline-block; transition: transform 180ms ease; }
-.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { transform: translateX(4px); text-decoration-color: transparent; }
+.site-nav span { display: block; width: max-content; background: transparent; opacity: 1; transition: opacity 180ms ease; }
+.site-nav:hover span, .site-nav:focus-within span { opacity: 0; }
+.site-nav span:hover, .site-nav span:has(a:focus-visible) { opacity: 1; }
+.site-nav span a { display: inline-block; transform-origin: left center; }
+.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; transform: scale(1.55); text-decoration-color: transparent; }
 .site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
 .mark { position: absolute; width: 124vw; max-width: none; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); }
@@ -30,7 +32,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .about-placeholder { min-height: 0; padding: 5rem var(--page-gutter) 2rem; font-size: 1.25rem; }
 .about-placeholder h1, .experience h2 { max-width: none; margin: 0; font-size: clamp(1.65rem, 4.75vw, 3.9rem); font-weight: 400; line-height: 1.08; }
 .experience { padding: 2rem var(--page-gutter) 7rem; background: var(--acid); }
-.experience h2 { margin-bottom: 3rem; }
+.experience h2 { margin-bottom: 3rem; font-weight: 400; }
 .job-grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
 .job-card { display: grid; grid-template-rows: 2.2rem minmax(5rem, 1fr) auto; min-height: 16rem; padding: 1.2rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .job-grid { margin-inline: 0; }
