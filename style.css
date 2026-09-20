@@ -83,6 +83,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .about-placeholder { min-height: 0; }
   .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .recognition, .experience > .resume-link { margin-right: 1.2rem; margin-left: 1.2rem; }
   .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
+  .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
