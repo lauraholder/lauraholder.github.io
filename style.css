@@ -23,7 +23,7 @@ a { color: inherit; text-underline-offset: 0.28em; }
 .site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; }
 .site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
-.mark { position: absolute; width: 124vw; max-width: none; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); object-fit: fill; }
+.mark { position: absolute; width: 124vw; max-width: none; aspect-ratio: 856 / 825; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); object-fit: contain; }
 .signature { position: absolute; z-index: 2; left: 54%; bottom: 18%; font-family: var(--script); font-size: clamp(2rem, 7vw, 4.5rem); transform: rotate(-5deg); }
 .signature.is-rainbow { color: #ff5fc4; }
 .eyebrow { margin: 0 0 0.4rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
