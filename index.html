@@ -50,12 +50,13 @@
     <script>
       (() => {
         const mark = document.querySelector('.mark');
+        const ASSET_VERSION = 'v2';
         const markAssets = [
-          'assets/laura-mark.svg',
-          'assets/L_rainbow_pencil.png',
-          'assets/L_brush_marker.png'
+          `assets/laura-mark.svg?${ASSET_VERSION}`,
+          `assets/L_rainbow_pencil.png?${ASSET_VERSION}`,
+          `assets/L_brush_marker.png?${ASSET_VERSION}`
         ];
-        const defaultAsset = 'assets/L_brush_marker.png';
+        const defaultAsset = `assets/L_brush_marker.png?${ASSET_VERSION}`;
         const signature = document.querySelector('.signature');
 
         let hasVisitedBefore = false;
@@ -69,7 +70,7 @@
           : defaultAsset;
 
         mark.src = selectedAsset;
-        signature.classList.toggle('is-rainbow', selectedAsset === 'assets/L_rainbow_pencil.png');
+        signature.classList.toggle('is-rainbow', selectedAsset.startsWith('assets/L_rainbow_pencil.png'));
 
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
