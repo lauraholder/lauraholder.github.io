@@ -33,6 +33,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .landing-footer p, .landing-footer a { flex: 0 1 auto; margin: 0; white-space: nowrap; }
 .landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
+.landing-footer .contact-trigger { display: inline; width: auto; margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; cursor: pointer; }
+.landing-footer .contact-trigger:hover, .landing-footer .contact-trigger:focus-visible { color: #ff5fc4; text-decoration-color: #ff5fc4; }
 .about-placeholder { min-height: 0; padding: 5rem var(--page-gutter) 2rem; font-size: 1.25rem; }
 .about-placeholder h1 { max-width: none; margin: 0; font-weight: 400; }
 .experience h2 { max-width: none; margin: 0 0 3rem; font-weight: 400; }
@@ -54,6 +56,23 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .resume-link a { display: inline-block; color: inherit; font-family: inherit; font-size: inherit; font-weight: 400; line-height: inherit; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; transform-origin: left center; }
 .resume-link a:hover, .resume-link a:focus-visible { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; }
 .recognition strong { font-weight: 700; }
+
+.contact-modal { position: fixed; z-index: 50; inset: 0; display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+.contact-modal.is-open { display: flex; }
+.contact-modal-backdrop { position: absolute; inset: 0; background: rgba(9, 9, 9, 0.55); }
+.contact-modal-panel { position: relative; z-index: 1; width: min(28rem, 100%); max-height: calc(100svh - 3rem); overflow-y: auto; padding: 2rem; background: var(--acid); border: 1px solid var(--ink); box-shadow: 12px 12px 0 rgba(9, 9, 9, 0.15); }
+.contact-modal-close { position: absolute; top: 0.75rem; right: 0.75rem; width: 2rem; height: 2rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 1.25rem; line-height: 1; cursor: pointer; }
+.contact-modal-close:hover, .contact-modal-close:focus-visible { background: var(--ink); color: var(--acid); }
+.contact-modal h2 { margin: 0 0 1.25rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 4vw, 2rem); }
+.contact-form { display: grid; gap: 1rem; }
+.contact-form label { display: grid; gap: 0.35rem; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea { font: inherit; font-size: 1rem; padding: 0.6rem 0.7rem; border: 1px solid var(--ink); background: #fff; color: var(--ink); text-transform: none; letter-spacing: normal; }
+.contact-form textarea { resize: vertical; }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.contact-submit { justify-self: start; padding: 0.65rem 1.4rem; background: var(--ink); color: var(--acid); border: 1px solid var(--ink); font-family: var(--serif); font-size: 1rem; cursor: pointer; }
+.contact-submit:hover, .contact-submit:focus-visible { background: transparent; color: var(--ink); }
+.contact-submit:disabled { opacity: 0.6; cursor: default; }
+.contact-status { margin: 0; font-size: 0.9rem; }
 
 @media (min-width: 600px) {
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
