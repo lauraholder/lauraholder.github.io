@@ -69,7 +69,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea { font: inherit; font-size: 1rem; padding: 0.6rem 0.7rem; border: 1px solid var(--ink); background: #fff; color: var(--ink); text-transform: none; letter-spacing: normal; }
 .contact-form textarea { resize: vertical; }
 .contact-honeypot { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.contact-submit { justify-self: start; padding: 0.65rem 1.4rem; background: var(--ink); color: var(--acid); border: 1px solid var(--ink); font-family: var(--serif); font-size: 1rem; cursor: pointer; }
+.contact-submit { justify-self: start; padding: 0.65rem 1.4rem; background: var(--ink); color: var(--acid); border: 1px solid var(--ink); font-family: var(--serif); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; }
 .contact-submit:hover, .contact-submit:focus-visible { background: transparent; color: var(--ink); }
 .contact-submit:disabled { opacity: 0.6; cursor: default; }
 .contact-status { margin: 0; font-size: 0.9rem; }
