@@ -31,12 +31,12 @@
     </main>
     <section class="about-placeholder" id="about" aria-labelledby="about-title">
       <p class="eyebrow">About Me</p>
-      <h1 id="about-title">I'm a product design leader who (still) believes in leading with empathy, working with humans (and agents) at the intersection of strategy, design systems, editorial tools, and agentic workflows.</h1>
+      <h1 id="about-title" class="description-large">I'm a product design leader who (still) believes in leading with empathy, working with humans (and agents) at the intersection of strategy, design systems, editorial tools, and agentic workflows.</h1>
     </section>
 
     <section class="experience" aria-labelledby="experience-title">
       <p class="eyebrow">Experience</p>
-      <h2 id="experience-title">Great product work is built through collaboration across stakeholders, platforms, product teams, and multidisciplinary design teams.</h2>
+      <h2 id="experience-title" class="description-medium">Great product work is the output of disciplined collaboration that aligns research, stakeholders, platforms, product teams, and a multidisciplinary design effort around what best serves the audience. It means building the right products, not just building products beautifully.</h2>
       <div class="job-grid">
         <article class="job-card current-card"><p class="job-status current">Present</p><h3>Hearst</h3><p class="job-title">VP Product Design, Hearst Magazines</p></article>
         <article class="job-card"><p class="job-status">Prior</p><h3>Vox Media</h3><p class="job-title">Design Director<br>Principal Product Designer</p></article>
@@ -45,8 +45,8 @@
         <article class="job-card"><p class="job-status">Prior</p><h3>The New York Times</h3><p class="job-title">Interaction Designer</p></article>
         <article class="job-card"><p class="job-status">Prior</p><h3>CBS News</h3><p class="job-title">Associate Creative Director</p></article>
       </div>
-      <p class="recognition">My work has been recognized by the <strong>Anthem Awards</strong>, <strong>Webby Awards nominations</strong>, <strong>Society for News Design</strong>, <strong>Data Journalism Awards</strong>, and <strong>Information is Beautiful</strong>. I have been a guest lecturer and critic with <strong>The New School Journalism+Design program</strong>, <strong>The Cooper Union</strong>, and <strong>Yale University</strong>.</p>
-      <p class="resume-link"><a href="resume.html">My Resumé</a></p>
+      <p class="recognition description-medium">My work has been recognized by the <strong>Anthem Awards</strong>, <strong>Webby Awards nominations</strong>, <strong>Society for News Design</strong>, <strong>Data Journalism Awards</strong>, and <strong>Information is Beautiful</strong>. I have been a guest lecturer and critic with <strong>The New School Journalism+Design program</strong>, <strong>The Cooper Union</strong>, and <strong>Yale University</strong>.</p>
+      <p class="resume-link description-medium"><a href="resume.html">My Resumé</a></p>
     </section>
     <script>
       (() => {
@@ -56,9 +56,19 @@
           'assets/L_rainbow_pencil.png',
           'assets/L_brush_marker.png'
         ];
+        const defaultAsset = 'assets/L_brush_marker.png';
         const markFrame = { width: 856, height: 825 };
         const signature = document.querySelector('.signature');
-        const selectedAsset = markAssets[Math.floor(Math.random() * markAssets.length)];
+
+        let hasVisitedBefore = false;
+        try {
+          hasVisitedBefore = localStorage.getItem('laura-mark-seen') === '1';
+          localStorage.setItem('laura-mark-seen', '1');
+        } catch (e) {}
+
+        const selectedAsset = hasVisitedBefore
+          ? markAssets[Math.floor(Math.random() * markAssets.length)]
+          : defaultAsset;
 
         mark.src = selectedAsset;
         signature.classList.toggle('is-rainbow', selectedAsset === 'assets/L_rainbow_pencil.png');
