@@ -52,7 +52,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .recognition { max-width: none; margin: 3rem 0 0; }
 .resume-link { margin: 1.25rem 0 0; }
 .resume-link a { display: inline-block; color: inherit; font-family: inherit; font-size: inherit; font-weight: 400; line-height: inherit; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; transform-origin: left center; }
-.resume-link a:hover, .resume-link a:focus-visible { color: #ff5fc4; transform: scale(2); text-decoration-color: #ff5fc4; }
+.resume-link a:hover, .resume-link a:focus-visible { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; }
 .recognition strong { font-weight: 700; }
 
 @media (min-width: 600px) {
