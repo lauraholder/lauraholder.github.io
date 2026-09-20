@@ -57,7 +57,6 @@
           'assets/L_brush_marker.png'
         ];
         const defaultAsset = 'assets/L_brush_marker.png';
-        const markFrame = { width: 856, height: 825 };
         const signature = document.querySelector('.signature');
 
         let hasVisitedBefore = false;
@@ -72,14 +71,6 @@
 
         mark.src = selectedAsset;
         signature.classList.toggle('is-rainbow', selectedAsset === 'assets/L_rainbow_pencil.png');
-
-        const syncMarkFrame = () => {
-          const width = mark.getBoundingClientRect().width;
-          if (width) mark.style.height = `${width * markFrame.height / markFrame.width}px`;
-        };
-
-        syncMarkFrame();
-        window.addEventListener('resize', syncMarkFrame);
 
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
