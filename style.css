@@ -4,6 +4,8 @@
   --serif: "Caudex", Georgia, serif;
   --script: "Cedarville Cursive", cursive;
   --page-gutter: clamp(1.5rem, 4.5vw, 4rem);
+  --text-description-large: clamp(1.65rem, 4.75vw, 3.9rem);
+  --text-description-medium: clamp(1.45rem, 3.2vw, 2.3rem);
 }
 
 * { box-sizing: border-box; }
@@ -18,7 +20,7 @@ a { color: inherit; text-underline-offset: 0.28em; }
 .site-nav:hover span, .site-nav:focus-within span { opacity: 0; }
 .site-nav span:hover, .site-nav span:has(a:focus-visible) { opacity: 1; }
 .site-nav span a { display: inline-block; transform-origin: left center; }
-.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; transform: scale(2); text-decoration-color: #ff5fc4; }
+.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; }
 .site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
 .mark { position: absolute; width: 124vw; max-width: none; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); object-fit: fill; }
@@ -32,21 +34,23 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .about-placeholder { min-height: 0; padding: 5rem var(--page-gutter) 2rem; font-size: 1.25rem; }
-.about-placeholder h1, .experience h2 { max-width: none; margin: 0; font-size: clamp(1.65rem, 4.75vw, 3.9rem); font-weight: 400; line-height: 1.08; }
+.about-placeholder h1 { max-width: none; margin: 0; font-weight: 400; }
+.experience h2 { max-width: none; margin: 0 0 3rem; font-weight: 400; }
+.description-large { font-size: var(--text-description-large); line-height: 1.08; }
+.description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
 .experience { padding: 2rem var(--page-gutter) 7rem; background: var(--acid); }
-.experience h2 { margin-bottom: 3rem; font-weight: 400; }
 .job-grid { display: grid; grid-template-columns: 1fr; gap: .75rem; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
 .job-grid { margin-inline: 0; }
 .current-card { background: #171b18; color: #f5f5f5; }
-.job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: clamp(0.85rem, 1.5vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; }
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
 .job-card h3 { align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
 .job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
 .current-card .job-status, .current-card h3, .current-card .job-title { color: #fff; }
-.recognition { max-width: 60rem; margin: 3rem 0 0; font-size: clamp(1.2rem, 2.1vw, 1.65rem); line-height: 1.35; }
-.resume-link { margin: 1.25rem 0 0; font-size: clamp(1.2rem, 2.1vw, 1.65rem); line-height: 1.35; }
+.recognition { max-width: 60rem; margin: 3rem 0 0; }
+.resume-link { margin: 1.25rem 0 0; }
 .resume-link a { display: inline-block; color: inherit; font-family: inherit; font-size: inherit; font-weight: 400; line-height: inherit; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; transform-origin: left center; }
 .resume-link a:hover, .resume-link a:focus-visible { color: #ff5fc4; transform: scale(2); text-decoration-color: #ff5fc4; }
 .recognition strong { font-weight: 700; }
@@ -63,8 +67,10 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { margin-inline: -2rem; }
   .job-card { padding: 2.5rem; }
+  .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
+  .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
   .recognition { max-width: 47rem; }
-  .site-nav a { font-size: 0.85rem; }
+  .site-nav a { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
 }
 
 @media (max-width: 599px) {
