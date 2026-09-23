@@ -58,6 +58,8 @@ section[aria-labelledby="education-title"] { border-bottom: 0 !important; }
 .role:last-child { margin-bottom: 0 !important; border-bottom: 0 !important; }
 .role time { color: var(--ink) !important; font-family: var(--mono) !important; font-size: .7rem !important; font-weight: 400 !important; letter-spacing: .12em !important; text-transform: uppercase; }
 .role h3 { margin: 0 0 .7rem !important; color: var(--ink) !important; font-family: var(--serif) !important; font-size: clamp(1.35rem, 2.5vw, 2rem) !important; font-weight: 700 !important; line-height: 1.21 !important; }
+.role-company { font-weight: 400; color: rgba(9, 9, 9, 0.72); }
+.role-title { font-weight: 700; color: var(--ink); }
 .role ul { margin: 0 !important; padding-left: 1.2rem !important; }
 .role li { margin: .45rem 0 !important; }
 .stack-list { margin: 0 !important; padding: 0 !important; list-style: none !important; }
