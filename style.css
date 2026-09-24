@@ -50,7 +50,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
 .job-logo { display: flex; grid-row: 2; grid-column: 1; align-items: flex-end; justify-content: flex-start; color: #303030; }
 .job-logo--image img, .job-logo--image svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 1.9rem; }
-.job-logo--large img, .job-logo--large svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 4.2rem; }
+.job-logo--large img, .job-logo--large svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 2.3rem; }
 .current-card .job-logo { color: #fff; }
 .job-card h3 { grid-row: 2; grid-column: 1; align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
@@ -92,7 +92,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .job-grid { margin-inline: -2rem; }
   .job-card { padding: 2.5rem; }
   .job-logo--image img, .job-logo--image svg { max-height: 3.4rem; }
-  .job-logo--large img, .job-logo--large svg { max-height: 7.5rem; }
+  .job-logo--large img, .job-logo--large svg { max-height: 4.1rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
   .site-nav a { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
