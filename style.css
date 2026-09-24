@@ -41,7 +41,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .experience h2 { max-width: none; margin: 0 0 3rem; font-weight: 400; }
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
-.experience { padding: 2rem var(--page-gutter) 7rem; background: var(--acid); }
+.experience { padding: 2rem var(--page-gutter) 5rem; background: var(--acid); }
 .job-grid { display: grid; grid-template-columns: 1fr; gap: .75rem; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
 .job-grid { margin-inline: 0; }
@@ -87,6 +87,16 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .contact-submit:disabled { opacity: 0.6; cursor: default; }
 .contact-status { margin: 0; font-size: 0.9rem; }
 
+.portfolio { padding: 0 var(--page-gutter) 7rem; background: var(--acid); }
+.portfolio-layout { display: grid; gap: 2rem; }
+.portfolio h2 { margin: 0; font-weight: 400; }
+.portfolio-list { display: grid; gap: 1.4rem; margin: 0; padding: 0; list-style: none; }
+.portfolio-list li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1rem; row-gap: .2rem; }
+.portfolio-list a { display: inline-block; font-size: var(--text-description-medium); line-height: 1.15; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; }
+.portfolio-list a:hover, .portfolio-list a:focus-visible { text-decoration-style: solid; text-decoration-thickness: 3px; }
+.portfolio-org { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; transition: opacity 180ms ease; }
+.portfolio-list li:has(a:hover) .portfolio-org, .portfolio-list li:has(a:focus-visible) .portfolio-org { opacity: 0; }
+
 @media (min-width: 600px) {
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
   .signature { left: 56%; bottom: 16%; }
@@ -98,6 +108,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .signature { left: 55%; bottom: 12%; }
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { margin-inline: -2rem; }
+  .portfolio-layout { grid-template-columns: 1fr 1fr; gap: 4rem; }
   .job-card { padding: 2.5rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
@@ -112,7 +123,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .job-grid { margin-right: 0; margin-left: -0.6rem; }
   .job-card { padding: 1.8rem; }
   .about-placeholder { min-height: 0; }
-  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .recognition, .experience > .resume-link { margin-right: 1.2rem; margin-left: 1.2rem; }
+  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
   .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
   .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
