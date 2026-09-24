@@ -48,10 +48,13 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .current-card { background: #171b18; color: #f5f5f5; }
 .job-status { grid-row: 1; grid-column: 1; align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: clamp(0.85rem, 1.5vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; }
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
-.job-logo { display: flex; grid-row: 2; grid-column: 1; align-items: flex-end; justify-content: flex-start; color: #303030; }
-.job-logo--image img, .job-logo--image svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 1.9rem; }
-.job-logo--large img, .job-logo--large svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 2.3rem; }
+.job-logo { display: none; grid-row: 1 / -1; grid-column: 1; align-items: center; justify-content: center; color: #303030; }
+.job-logo img, .job-logo svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; }
 .current-card .job-logo { color: #fff; }
+.job-card:has(.job-logo):hover .job-status,
+.job-card:has(.job-logo):hover h3,
+.job-card:has(.job-logo):hover .job-title { display: none; }
+.job-card:has(.job-logo):hover .job-logo { display: flex; }
 .job-card h3 { grid-row: 2; grid-column: 1; align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
 .job-card .job-title { grid-row: 3; grid-column: 1; max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
@@ -91,8 +94,6 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { margin-inline: -2rem; }
   .job-card { padding: 2.5rem; }
-  .job-logo--image img, .job-logo--image svg { max-height: 3.4rem; }
-  .job-logo--large img, .job-logo--large svg { max-height: 4.1rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
   .site-nav a { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
