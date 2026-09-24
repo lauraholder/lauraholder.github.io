@@ -110,6 +110,20 @@
           lastScrollY = currentScrollY;
         }, { passive: true });
 
+        const logoCards = Array.from(document.querySelectorAll('.job-card')).filter((card) => card.querySelector('.job-logo'));
+        logoCards.forEach((card) => {
+          card.addEventListener('click', () => {
+            const wasFlipped = card.classList.contains('is-flipped');
+            logoCards.forEach((c) => c.classList.remove('is-flipped'));
+            if (!wasFlipped) card.classList.add('is-flipped');
+          });
+        });
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.job-card')) {
+            logoCards.forEach((c) => c.classList.remove('is-flipped'));
+          }
+        });
+
         const contactModal = document.getElementById('contact-modal');
         const contactOpenBtn = document.querySelector('[data-contact-open]');
         const contactCloseEls = contactModal.querySelectorAll('[data-contact-close]');
