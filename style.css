@@ -46,23 +46,11 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
 .job-grid { margin-inline: 0; }
 .current-card { background: #171b18; color: #f5f5f5; }
-.job-card:has(.job-logo) { cursor: pointer; }
-.job-status { grid-row: 1; grid-column: 1; align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: clamp(0.85rem, 1.5vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; }
+.job-status { align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: clamp(0.85rem, 1.5vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; }
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
-.job-logo { display: none; grid-row: 1 / -1; grid-column: 1; align-items: center; justify-content: center; color: #303030; }
-.job-logo img, .job-logo svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; }
-.current-card .job-logo { color: #fff; }
-.job-card:has(.job-logo):hover .job-status,
-.job-card:has(.job-logo):hover h3,
-.job-card:has(.job-logo):hover .job-title,
-.job-card.is-flipped .job-status,
-.job-card.is-flipped h3,
-.job-card.is-flipped .job-title { display: none; }
-.job-card:has(.job-logo):hover .job-logo,
-.job-card.is-flipped .job-logo { display: flex; }
-.job-card h3 { grid-row: 2; grid-column: 1; align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
+.job-card h3 { align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
-.job-card .job-title { grid-row: 3; grid-column: 1; max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
+.job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
 .current-card .job-status, .current-card h3, .current-card .job-title { color: #fff; }
 .recognition { max-width: none; margin: 3rem 0 0; }
 .resume-link { margin: 1.25rem 0 0; }
