@@ -38,7 +38,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .landing-footer .contact-trigger:hover, .landing-footer .contact-trigger:focus-visible { color: #ff5fc4; text-decoration-color: #ff5fc4; }
 .about-placeholder { min-height: 0; padding: 5rem var(--page-gutter) 2rem; font-size: 1.25rem; }
 .about-placeholder h1 { max-width: none; margin: 0; font-weight: 400; }
-.experience h2 { max-width: none; margin: 0 0 3rem; font-weight: 400; }
+.experience h2, .experience .currently { max-width: none; margin: 0 0 3rem; font-weight: 400; }
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
 .experience { padding: 2rem var(--page-gutter) 5rem; background: var(--acid); }
@@ -123,7 +123,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .job-grid { margin-right: 0; margin-left: -0.6rem; }
   .job-card { padding: 1.8rem; }
   .about-placeholder { min-height: 0; }
-  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
+  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .currently, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
   .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
   .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
