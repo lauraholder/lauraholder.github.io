@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=landing-vector-v16" />
+    <link rel="stylesheet" href="style.css?v=landing-vector-v17" />
   </head>
   <body>
     <main class="landing" id="home">
@@ -99,8 +99,71 @@
           ? markAssets[Math.floor(Math.random() * markAssets.length)]
           : defaultAsset;
 
-        mark.src = selectedAsset;
-        signature.classList.toggle('is-rainbow', selectedAsset.startsWith('assets/L_rainbow_pencil.png'));
+        const showAsset = (asset) => {
+          mark.src = asset;
+          signature.classList.toggle('is-rainbow', asset.startsWith('assets/L_rainbow_pencil.png'));
+        };
+
+        let currentIndex = markAssets.indexOf(selectedAsset);
+        showAsset(selectedAsset);
+
+        // Click/tap the L to rotate to the next mark. The image box is much larger
+        // than the drawn strokes and sits over the footer, so hit-test against the
+        // image's alpha channel rather than its bounding box.
+        const landing = document.querySelector('.landing');
+        const hitCanvas = document.createElement('canvas');
+        const hitContext = hitCanvas.getContext('2d', { willReadFrequently: true });
+        let alphaData = null;
+
+        const readAlpha = () => {
+          alphaData = null;
+          if (!mark.naturalWidth || !hitContext) return;
+          hitCanvas.width = mark.naturalWidth;
+          hitCanvas.height = mark.naturalHeight;
+          hitContext.clearRect(0, 0, hitCanvas.width, hitCanvas.height);
+          hitContext.drawImage(mark, 0, 0);
+          try {
+            alphaData = hitContext.getImageData(0, 0, hitCanvas.width, hitCanvas.height).data;
+          } catch (e) {}
+        };
+
+        mark.addEventListener('load', readAlpha);
+        if (mark.complete) readAlpha();
+
+        const isOverMark = (clientX, clientY) => {
+          if (!alphaData) return false;
+          const rect = mark.getBoundingClientRect();
+          const scale = Math.min(rect.width / hitCanvas.width, rect.height / hitCanvas.height);
+          const offsetX = rect.left + (rect.width - hitCanvas.width * scale) / 2;
+          const offsetY = rect.top + (rect.height - hitCanvas.height * scale) / 2;
+          const tolerance = 14 / scale;
+          const cx = (clientX - offsetX) / scale;
+          const cy = (clientY - offsetY) / scale;
+
+          for (let dy = -tolerance; dy <= tolerance; dy += tolerance / 2) {
+            for (let dx = -tolerance; dx <= tolerance; dx += tolerance / 2) {
+              const x = Math.round(cx + dx);
+              const y = Math.round(cy + dy);
+              if (x < 0 || y < 0 || x >= hitCanvas.width || y >= hitCanvas.height) continue;
+              if (alphaData[(y * hitCanvas.width + x) * 4 + 3] > 40) return true;
+            }
+          }
+          return false;
+        };
+
+        const isInteractive = (target) => target.closest('a, button, input, textarea, label, .site-nav');
+
+        landing.addEventListener('click', (event) => {
+          if (isInteractive(event.target) || !isOverMark(event.clientX, event.clientY)) return;
+          currentIndex = (currentIndex + 1) % markAssets.length;
+          showAsset(markAssets[currentIndex]);
+        });
+
+        landing.addEventListener('pointermove', (event) => {
+          if (event.pointerType !== 'mouse') return;
+          const hovering = !isInteractive(event.target) && isOverMark(event.clientX, event.clientY);
+          landing.classList.toggle('is-over-mark', hovering);
+        }, { passive: true });
 
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
