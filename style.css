@@ -95,9 +95,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 3px) / 3px 1px repeat-x; }
 .portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 3px) / 100% 1px no-repeat; }
 .portfolio-org { position: relative; font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
-.portfolio-org::after { position: absolute; left: 0; bottom: -.1em; font-size: 1.6em; line-height: 1; letter-spacing: 0; content: "\2197"; content: "\2197" / ""; visibility: hidden; }
+.portfolio-org::after { position: absolute; left: 0; bottom: .1em; width: 14px; height: 18px; background: var(--ink); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath d='M1.5 16.5 12.5 1.5M4.5 1.5h8v8' fill='none' stroke='%23000' stroke-width='1.1'/%3E%3C/svg%3E") no-repeat center / contain; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 18'%3E%3Cpath d='M1.5 16.5 12.5 1.5M4.5 1.5h8v8' fill='none' stroke='%23000' stroke-width='1.1'/%3E%3C/svg%3E") no-repeat center / contain; content: ""; visibility: hidden; }
 .portfolio-list li:has(a:hover) .portfolio-org, .portfolio-list li:has(a:focus-visible) .portfolio-org { color: transparent; }
-.portfolio-list li:has(a:hover) .portfolio-org::after, .portfolio-list li:has(a:focus-visible) .portfolio-org::after { color: var(--ink); visibility: visible; }
+.portfolio-list li:has(a:hover) .portfolio-org::after, .portfolio-list li:has(a:focus-visible) .portfolio-org::after { visibility: visible; }
 
 @media (min-width: 600px) {
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
