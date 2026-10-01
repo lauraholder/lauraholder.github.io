@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=landing-vector-v17" />
+    <link rel="stylesheet" href="style.css?v=landing-vector-v18" />
   </head>
   <body>
     <main class="landing" id="home">
@@ -22,6 +22,7 @@
         <img class="mark" src="assets/L_brush_marker.png?v2" alt="" />
         <span class="signature">aura</span>
       </div>
+      <button type="button" class="mark-cycle">Show the next L</button>
       <footer class="landing-footer">
         <p>Laura Holder</p>
         <p>Product Design Leadership</p>
@@ -153,11 +154,18 @@
 
         const isInteractive = (target) => target.closest('a, button, input, textarea, label, .site-nav');
 
-        landing.addEventListener('click', (event) => {
-          if (isInteractive(event.target) || !isOverMark(event.clientX, event.clientY)) return;
+        const showNextAsset = () => {
           currentIndex = (currentIndex + 1) % markAssets.length;
           showAsset(markAssets[currentIndex]);
+        };
+
+        landing.addEventListener('click', (event) => {
+          if (isInteractive(event.target) || !isOverMark(event.clientX, event.clientY)) return;
+          showNextAsset();
         });
+
+        // Keyboard users get a button that only appears while focused.
+        document.querySelector('.mark-cycle').addEventListener('click', showNextAsset);
 
         landing.addEventListener('pointermove', (event) => {
           if (event.pointerType !== 'mouse') return;
