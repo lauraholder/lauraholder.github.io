@@ -93,9 +93,11 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .portfolio-list li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1rem; row-gap: .2rem; }
 /* Drawn underline: 1px dots with 2px gaps (native dotted can't be spaced). 1.22em = Caudex baseline (.92em) + former .3em offset; raised 3px. */
 .portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 3px) / 3px 1px repeat-x; }
-.portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 3px) / 100% 3px no-repeat; }
-.portfolio-org { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; transition: opacity 180ms ease; }
-.portfolio-list li:has(a:hover) .portfolio-org, .portfolio-list li:has(a:focus-visible) .portfolio-org { opacity: 0; }
+.portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 3px) / 100% 1px no-repeat; }
+.portfolio-org { position: relative; font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+.portfolio-org::after { position: absolute; left: 0; bottom: -.1em; font-size: 1.6em; line-height: 1; letter-spacing: 0; content: "\2197"; content: "\2197" / ""; visibility: hidden; }
+.portfolio-list li:has(a:hover) .portfolio-org, .portfolio-list li:has(a:focus-visible) .portfolio-org { color: transparent; }
+.portfolio-list li:has(a:hover) .portfolio-org::after, .portfolio-list li:has(a:focus-visible) .portfolio-org::after { color: var(--ink); visibility: visible; }
 
 @media (min-width: 600px) {
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
