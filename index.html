@@ -77,6 +77,30 @@
 
     <script>
       (() => {
+        const mark = document.querySelector('.mark');
+        const ASSET_VERSION = 'v2';
+        const markAssets = [
+          `assets/laura-mark.svg?${ASSET_VERSION}`,
+          `assets/L_rainbow_pencil.png?${ASSET_VERSION}`,
+          `assets/L_brush_marker.png?${ASSET_VERSION}`,
+          `assets/L_scales_pen.png?${ASSET_VERSION}`
+        ];
+        const defaultAsset = `assets/L_brush_marker.png?${ASSET_VERSION}`;
+        const signature = document.querySelector('.signature');
+
+        // Each browser session opens on the brush marker; later loads rotate.
+        let hasLoadedThisSession = false;
+        try {
+          hasLoadedThisSession = sessionStorage.getItem('laura-mark-seen') === '1';
+          sessionStorage.setItem('laura-mark-seen', '1');
+        } catch (e) {}
+
+        const selectedAsset = hasLoadedThisSession
+          ? markAssets[Math.floor(Math.random() * markAssets.length)]
+          : defaultAsset;
+
+        mark.src = selectedAsset;
+        signature.classList.toggle('is-rainbow', selectedAsset.startsWith('assets/L_rainbow_pencil.png'));
 
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
