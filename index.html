@@ -19,7 +19,7 @@
         <span><a href="https://github.com/lauraholder" rel="noreferrer">GitHub</a></span>
       </nav>
       <div class="mark-wrap" aria-hidden="true">
-        <img class="mark" src="assets/laura-mark.svg" alt="" />
+        <img class="mark" src="assets/L_brush_marker.png?v2" alt="" />
         <span class="signature">aura</span>
       </div>
       <footer class="landing-footer">
@@ -77,29 +77,6 @@
 
     <script>
       (() => {
-        const mark = document.querySelector('.mark');
-        const ASSET_VERSION = 'v2';
-        const markAssets = [
-          `assets/laura-mark.svg?${ASSET_VERSION}`,
-          `assets/L_rainbow_pencil.png?${ASSET_VERSION}`,
-          `assets/L_brush_marker.png?${ASSET_VERSION}`,
-          `assets/L_scales_pen.png?${ASSET_VERSION}`
-        ];
-        const defaultAsset = `assets/L_brush_marker.png?${ASSET_VERSION}`;
-        const signature = document.querySelector('.signature');
-
-        let hasVisitedBefore = false;
-        try {
-          hasVisitedBefore = localStorage.getItem('laura-mark-seen') === '1';
-          localStorage.setItem('laura-mark-seen', '1');
-        } catch (e) {}
-
-        const selectedAsset = hasVisitedBefore
-          ? markAssets[Math.floor(Math.random() * markAssets.length)]
-          : defaultAsset;
-
-        mark.src = selectedAsset;
-        signature.classList.toggle('is-rainbow', selectedAsset.startsWith('assets/L_rainbow_pencil.png'));
 
         const nav = document.querySelector('.site-nav');
         let lastScrollY = window.scrollY;
