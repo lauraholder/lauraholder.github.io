@@ -91,8 +91,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .portfolio h2 { margin: 0; font-weight: 400; }
 .portfolio-list { display: grid; gap: 1.4rem; margin: 0; padding: 0; list-style: none; }
 .portfolio-list li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1rem; row-gap: .2rem; }
-.portfolio-list a { display: inline-block; font-size: var(--text-description-medium); line-height: 1.15; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: .3em; }
-.portfolio-list a:hover, .portfolio-list a:focus-visible { text-decoration-style: solid; text-decoration-thickness: 3px; }
+/* Drawn underline: 1px dots with 2px gaps (native dotted can't be spaced). 1.22em = Caudex baseline (.92em) + former .3em offset; raised 3px. */
+.portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 3px) / 3px 1px repeat-x; }
+.portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 3px) / 100% 3px no-repeat; }
 .portfolio-org { font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; transition: opacity 180ms ease; }
 .portfolio-list li:has(a:hover) .portfolio-org, .portfolio-list li:has(a:focus-visible) .portfolio-org { opacity: 0; }
 
