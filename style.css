@@ -41,9 +41,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
 .experience { padding: 2rem var(--page-gutter) 5rem; background: var(--acid); }
-.job-grid { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+/* Cards inset to ~78% of the viewport and centered (per desktop mock); on phones this lines up with the indented text column. */
+.job-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 78vw; max-width: 100%; margin-inline: auto; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
-.job-grid { margin-inline: 0; }
 .current-card { background: #171b18; color: #f5f5f5; }
 .job-card:has(.job-logo) { cursor: pointer; }
 .job-status { grid-row: 1; grid-column: 1; align-self: start; width: max-content; min-height: 1.6rem; margin: 0; font-family: var(--serif); font-size: clamp(0.85rem, 1.5vw, 1.15rem); letter-spacing: 0.12em; text-transform: uppercase; }
@@ -110,9 +110,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .mark { width: min(52.5vw, 930px); left: 50%; bottom: 3%; transform: translateX(-50%); }
   .signature { left: 55%; bottom: 12%; }
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
-  .job-grid { margin-inline: -2rem; }
+  .job-grid { gap: 1.5rem; }
   .portfolio-layout { grid-template-columns: 1fr 1fr; gap: 4rem; }
-  .job-card { padding: 2.5rem; }
+  .job-card { padding: 3rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
   .site-nav a { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
@@ -123,8 +123,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .landing-footer { right: var(--page-gutter); left: var(--page-gutter); padding-right: 1.2rem; padding-left: 1.2rem; }
   .landing-footer { gap: 1rem; }
   .landing-footer p:last-child { display: none; }
-  .job-grid { margin-right: 0; margin-left: -0.6rem; }
-  .job-card { padding: 1.8rem; }
+  .job-card { padding: 1.7rem; }
+  .job-card h3 { font-size: 2.25rem; }
   .about-placeholder { min-height: 0; }
   .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .currently, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
   .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
