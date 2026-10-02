@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=landing-vector-v27" />
+    <link rel="stylesheet" href="style.css?v=landing-vector-v28" />
   </head>
   <body>
     <main class="landing" id="home">
@@ -124,20 +124,6 @@
           nav.classList.toggle('is-scrolling-up', currentScrollY > 8 && currentScrollY < lastScrollY);
           lastScrollY = currentScrollY;
         }, { passive: true });
-
-        const logoCards = Array.from(document.querySelectorAll('.job-card')).filter((card) => card.querySelector('.job-logo'));
-        logoCards.forEach((card) => {
-          card.addEventListener('click', () => {
-            const wasFlipped = card.classList.contains('is-flipped');
-            logoCards.forEach((c) => c.classList.remove('is-flipped'));
-            if (!wasFlipped) card.classList.add('is-flipped');
-          });
-        });
-        document.addEventListener('click', (e) => {
-          if (!e.target.closest('.job-card')) {
-            logoCards.forEach((c) => c.classList.remove('is-flipped'));
-          }
-        });
 
         const contactModal = document.getElementById('contact-modal');
         const contactOpenBtn = document.querySelector('[data-contact-open]');
