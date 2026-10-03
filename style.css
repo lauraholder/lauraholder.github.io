@@ -111,20 +111,21 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 }
 
 @media (max-width: 599px) {
+  /* One symmetric guide on phones: 2.15rem (~20% tighter than the old 43px inset), shared by nav, text, footer and cards. */
+  :root { --page-gutter: 2.15rem; }
   /* Tall narrow screens left a big gap above the L; cap the hero relative to width. */
   .landing { min-height: min(100svh, 184vw); }
   /* Sit the L (and its signature) higher, just under the nav, per mobile mock. */
   .mark { bottom: 18%; }
   .signature { bottom: 22%; }
-  .site-nav { left: calc(var(--page-gutter) - 0.6rem); padding-left: 1.8rem; }
-  .landing-footer { right: var(--page-gutter); left: var(--page-gutter); padding-right: 1.2rem; padding-left: 1.2rem; }
-  .landing-footer { gap: 1rem; }
+  /* Footer text shrinks on very narrow phones so both labels stay inside the guide. */
+  .landing-footer { gap: 1rem; padding-right: 0; font-size: min(0.85rem, 3.85vw); }
+  .landing-footer::before { left: 0; }
   .landing-footer p:last-child { display: none; }
+  .job-grid { width: 100%; }
   .job-card { padding: 1.7rem; }
   .job-card h3 { font-size: 2.25rem; }
   .about-placeholder { min-height: 0; }
-  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .currently, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
-  .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
   .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
 
