@@ -102,8 +102,10 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .signature { left: 55%; bottom: calc(12% - 20px); }
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { gap: 1.5rem; }
-  /* Two stacks on desktop: four links left, three right (column-first flow). */
-  .portfolio-list { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 4rem; }
+  /* Two stacks on desktop: four links left, three right (column-first flow).
+     Same width, centering, gap and inner padding as .job-grid/.job-card so each column's text lines up with the card text above. */
+  .portfolio-list { width: 78vw; max-width: 100%; margin-inline: auto; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 1.5rem; }
+  .portfolio-list li { padding-inline: 3rem; }
   .job-card { padding: 3rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
