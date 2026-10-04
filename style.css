@@ -38,8 +38,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .landing-footer { position: absolute; z-index: 4; right: var(--page-gutter); bottom: calc(clamp(1.5rem, 4vw, 3.5rem) + 1.25rem + 4px); left: var(--page-gutter); display: flex; align-items: center; justify-content: space-between; gap: clamp(0.5rem, 5vw, 4rem); padding-top: 0.75rem; padding-right: 0.6rem; border-top: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); }
 .landing-footer::before { position: absolute; top: 0; right: 0; left: -0.6rem; height: 2px; background: var(--ink); content: ""; }
 .landing-footer p, .landing-footer a { font-family: var(--system-mono); flex: 0 1 auto; margin: 0; white-space: nowrap; }
-/* Name and title labels match the contact form labels (IBM Plex Mono 400, 0.8rem, 0.06em) in Title Case. */
-.landing-footer p:first-child, .landing-footer p:nth-child(2) { font-family: var(--mono); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; }
+/* Footer labels (name, title, Contact) match the contact form labels (IBM Plex Mono 400, 0.8rem, 0.06em) in Title Case. */
+.landing-footer p, .landing-footer .contact-trigger { font-family: var(--mono); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .landing-footer .contact-trigger { display: inline; width: auto; margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; cursor: pointer; }
 .landing-footer .contact-trigger:hover, .landing-footer .contact-trigger:focus-visible { color: #ff5fc4; text-decoration-color: #ff5fc4; }
@@ -103,6 +103,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 /* Tablet: indent Select work (label + links) to the left job card's text: centered 78vw grid (11vw inset) + 1.5rem card padding. */
 @media (min-width: 600px) and (max-width: 899px) {
   .portfolio > .eyebrow, .portfolio-list { margin-left: calc(11vw + 1.5rem - var(--page-gutter)); }
+  .recognition, .resume-link { margin-inline: calc(11vw + 1.5rem - var(--page-gutter)); }
 }
 
 @media (min-width: 900px) {
@@ -114,6 +115,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
      Same width, centering, gap and inner padding as .job-grid/.job-card so each column's text lines up with the card text above. */
   .portfolio-list { width: 78vw; max-width: 100%; margin-inline: auto; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 1.5rem; }
   .portfolio-list li { padding-inline: 3rem; }
+  /* Label and recognition text share the job cards' inner text margins: left card text to right card text. */
+  .portfolio > .eyebrow { margin-left: calc(11vw + 3rem - var(--page-gutter)); }
+  .recognition, .resume-link { margin-inline: calc(11vw + 3rem - var(--page-gutter)); }
   .job-card { padding: 3rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
