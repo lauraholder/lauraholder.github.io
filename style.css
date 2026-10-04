@@ -4,6 +4,8 @@
   --serif: "Caudex", Georgia, serif;
   --script: "Cedarville Cursive", cursive;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* System monospace (SF Mono on Apple) used for job titles and the landing footer. */
+  --system-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --page-gutter: clamp(1.5rem, 4.5vw, 4rem);
   --text-description-large: clamp(1.65rem, 4.75vw, 3.9rem);
   --text-description-medium: clamp(1.45rem, 3.2vw, 2.3rem);
@@ -21,7 +23,8 @@ a { color: inherit; text-underline-offset: 0.28em; }
 .site-nav:hover span, .site-nav:focus-within span { opacity: 0; }
 .site-nav span:hover, .site-nav span:has(a:focus-visible) { opacity: 1; }
 .site-nav span a { display: inline-block; transform-origin: left center; }
-.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; }
+/* Underline raised 2px on screen; the offset is divided by the 1.7 scale. */
+.site-nav span:hover a, .site-nav span:has(a:focus-visible) a { color: #ff5fc4; font-family: var(--script); transform: scale(1.7); text-decoration-color: #ff5fc4; text-underline-offset: calc(.28em - 2px / 1.7); }
 .site-nav a { display: inline; width: auto; padding: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); line-height: 1.1; text-decoration-style: dotted; text-decoration-thickness: 1px; }
 .mark-wrap { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
 .landing.is-over-mark { cursor: pointer; }
@@ -29,12 +32,14 @@ a { color: inherit; text-underline-offset: 0.28em; }
 .mark-cycle:focus-visible { width: auto; height: auto; overflow: visible; clip-path: none; padding: 0.4rem 0.75rem; background: var(--ink); color: var(--acid); font: inherit; font-size: clamp(0.85rem, 1.5vw, 1.15rem); outline: 2px solid #ff5fc4; outline-offset: 2px; cursor: pointer; }
 .mark { position: absolute; width: 124vw; max-width: none; aspect-ratio: 856 / 825; height: auto; left: 47%; bottom: 14%; transform: translateX(-47%); object-fit: contain; }
 .signature { position: absolute; z-index: 2; left: 54%; bottom: 18%; font-family: var(--script); font-size: clamp(2rem, 7vw, 4.5rem); transform: rotate(-5deg); }
+.signature.is-rainbow { color: #8e889f; }
 .eyebrow { margin: 0 0 0.4rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
 h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-height: 0.9; }
 .landing-footer { position: absolute; z-index: 4; right: var(--page-gutter); bottom: calc(clamp(1.5rem, 4vw, 3.5rem) + 1.25rem + 4px); left: var(--page-gutter); display: flex; align-items: center; justify-content: space-between; gap: clamp(0.5rem, 5vw, 4rem); padding-top: 0.75rem; padding-right: 0.6rem; border-top: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); }
 .landing-footer::before { position: absolute; top: 0; right: 0; left: -0.6rem; height: 2px; background: var(--ink); content: ""; }
-.landing-footer p, .landing-footer a { flex: 0 1 auto; margin: 0; white-space: nowrap; }
-.landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
+.landing-footer p, .landing-footer a { font-family: var(--system-mono); flex: 0 1 auto; margin: 0; white-space: nowrap; }
+/* Footer labels (name, title, Contact) match the contact form labels (IBM Plex Mono 400, 0.8rem, 0.06em) in Title Case. */
+.landing-footer p, .landing-footer .contact-trigger { font-family: var(--mono); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.06em; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .landing-footer .contact-trigger { display: inline; width: auto; margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; cursor: pointer; }
 .landing-footer .contact-trigger:hover, .landing-footer .contact-trigger:focus-visible { color: #ff5fc4; text-decoration-color: #ff5fc4; }
@@ -43,7 +48,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .experience h2, .experience .currently { max-width: none; margin: 0 0 3rem; font-weight: 400; }
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
-.experience { padding: 2rem var(--page-gutter) 5rem; background: var(--acid); }
+.experience { padding: 2rem var(--page-gutter) 3rem; background: var(--acid); }
 /* Cards inset to ~78% of the viewport and centered (per desktop mock); on phones this lines up with the indented text column. */
 .job-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 78vw; max-width: 100%; margin-inline: auto; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
@@ -52,7 +57,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
 .job-card h3 { align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
-.job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
+.job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: var(--system-mono); font-size: 0.8rem; line-height: 1.35; }
 .current-card .job-status, .current-card h3, .current-card .job-title { color: #fff; }
 .recognition { max-width: none; margin: 3rem 0 0; }
 .resume-link { margin: 1.25rem 0 0; }
@@ -63,7 +68,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .contact-modal { position: fixed; z-index: 50; inset: 0; display: none; align-items: center; justify-content: center; padding: 1.5rem; }
 .contact-modal.is-open { display: flex; }
 .contact-modal-backdrop { position: absolute; inset: 0; background: rgba(9, 9, 9, 0.55); }
-.contact-modal-panel { position: relative; z-index: 1; width: min(28rem, 100%); max-height: calc(100svh - 3rem); overflow-y: auto; padding: 2rem; background: var(--acid); border: 1px solid var(--ink); box-shadow: 12px 12px 0 rgba(9, 9, 9, 0.15); }
+.contact-modal-panel { position: relative; z-index: 1; width: min(28rem, 100%); max-height: calc(100svh - 3rem); overflow-y: auto; padding: 2rem; background: var(--acid); border: 1px solid var(--ink); }
 .contact-modal-close { position: absolute; top: 0.75rem; right: 0.75rem; width: 2rem; height: 2rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 1.25rem; line-height: 1; cursor: pointer; }
 .contact-modal-close:hover, .contact-modal-close:focus-visible { background: var(--ink); color: var(--acid); }
 .contact-modal h2 { margin: 0 0 1.25rem; font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 4vw, 2rem); }
@@ -80,9 +85,9 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .portfolio { padding: 0 var(--page-gutter) 7rem; background: var(--acid); }
 .portfolio-list { display: grid; gap: 1.4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
 .portfolio-list li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1rem; row-gap: .2rem; }
-/* Drawn underline: 1px dots with 2px gaps (native dotted can't be spaced). 1.22em = Caudex baseline (.92em) + former .3em offset; raised 6px. */
-.portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 6px) / 3px 1px repeat-x; }
-.portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 6px) / 100% 1px no-repeat; }
+/* Drawn underline: 1px dots with 2px gaps (native dotted can't be spaced). 1.22em = Caudex baseline (.92em) + former .3em offset; raised 4px. */
+.portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 4px) / 3px 1px repeat-x; }
+.portfolio-list a:hover, .portfolio-list a:focus-visible { background: linear-gradient(currentColor, currentColor) 0 calc(1.22em - 4px) / 100% 1px no-repeat; }
 .portfolio-org { position: relative; font-family: var(--mono); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
 /* Arrow drawn to match the resume page home glyph: 24-unit grid, 1px square-cap miter stroke, crisp edges, 45° geometry, 1.3rem box. */
 .portfolio-org::after { position: absolute; left: -.15rem; bottom: -.2em; width: 1.3rem; height: 1.3rem; background: var(--ink); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.15' stroke-linecap='square' stroke-linejoin='miter' shape-rendering='crispEdges'%3E%3Cpath d='M4 20 20 4M9 4h11v11'/%3E%3C/svg%3E") no-repeat center / contain; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.15' stroke-linecap='square' stroke-linejoin='miter' shape-rendering='crispEdges'%3E%3Cpath d='M4 20 20 4M9 4h11v11'/%3E%3C/svg%3E") no-repeat center / contain; content: ""; visibility: hidden; }
@@ -95,13 +100,24 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .job-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Tablet: indent Select work (label + links) to the left job card's text: centered 78vw grid (11vw inset) + 1.5rem card padding. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .portfolio > .eyebrow, .portfolio-list { margin-left: calc(11vw + 1.5rem - var(--page-gutter)); }
+  .recognition, .resume-link { margin-inline: calc(11vw + 1.5rem - var(--page-gutter)); }
+}
+
 @media (min-width: 900px) {
-  .mark { width: min(52.5vw, 930px); left: 50%; bottom: 3%; transform: translateX(-50%); }
-  .signature { left: 55%; bottom: 12%; }
+  .mark { width: min(52.5vw, 930px); left: 50%; bottom: calc(3% - 20px); transform: translateX(-50%); }
+  .signature { left: 55%; bottom: calc(12% - 20px); }
   .landing-footer { bottom: calc(clamp(1.5rem, 4vw, 3.5rem) - 2rem); }
   .job-grid { gap: 1.5rem; }
-  /* Two stacks on desktop: four links left, three right (column-first flow). */
-  .portfolio-list { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 4rem; }
+  /* Two stacks on desktop: four links left, three right (column-first flow).
+     Same width, centering, gap and inner padding as .job-grid/.job-card so each column's text lines up with the card text above. */
+  .portfolio-list { width: 78vw; max-width: 100%; margin-inline: auto; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 1.5rem; }
+  .portfolio-list li { padding-inline: 3rem; }
+  /* Label and recognition text share the job cards' inner text margins: left card text to right card text. */
+  .portfolio > .eyebrow { margin-left: calc(11vw + 3rem - var(--page-gutter)); }
+  .recognition, .resume-link { margin-inline: calc(11vw + 3rem - var(--page-gutter)); }
   .job-card { padding: 3rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
   .job-status { font-size: clamp(1.05rem, 1.3vw, 1.3rem); }
@@ -109,15 +125,23 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 }
 
 @media (max-width: 599px) {
-  .site-nav { left: calc(var(--page-gutter) - 0.6rem); padding-left: 1.8rem; }
-  .landing-footer { right: var(--page-gutter); left: var(--page-gutter); padding-right: 1.2rem; padding-left: 1.2rem; }
-  .landing-footer { gap: 1rem; }
+  /* One symmetric guide on phones: 2.15rem (~20% tighter than the old 43px inset), shared by nav, text, footer and cards. */
+  :root { --page-gutter: 2.15rem; }
+  /* Tall narrow screens left a big gap above the L; cap the hero relative to width. */
+  .landing { min-height: min(100svh, 184vw); }
+  /* Sit the L (and its signature) higher, just under the nav, per mobile mock. */
+  .mark { bottom: 18%; }
+  .signature { bottom: 22%; }
+  /* Footer text shrinks on narrow phones so both mono labels (37 chars at ~0.6em + 1rem gap) stay inside the guide. */
+  .landing-footer { gap: 1rem; padding-right: 0; font-size: min(0.85rem, calc((100vw - 2 * var(--page-gutter) - 1rem) / 22.6)); }
+  .landing-footer::before { left: 0; }
   .landing-footer p:last-child { display: none; }
+  /* Shrink only if both labels (37 chars at ~0.69em measured incl. tracking + 1rem gap) would overflow the guide. */
+  .landing-footer p:first-child, .landing-footer p:nth-child(2) { font-size: min(0.8rem, calc((100vw - 2 * var(--page-gutter) - 1rem) / 26)); }
+  .job-grid { width: 100%; }
   .job-card { padding: 1.7rem; }
   .job-card h3 { font-size: 2.25rem; }
   .about-placeholder { min-height: 0; }
-  .about-placeholder > *, .experience > .eyebrow, .experience > h2, .experience > .currently, .portfolio > * { margin-right: 1.2rem; margin-left: 1.2rem; }
-  .about-placeholder h1, .experience h2 { margin-right: 1.2rem !important; margin-left: 1.2rem !important; }
   .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
 
