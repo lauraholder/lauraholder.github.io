@@ -4,6 +4,8 @@
   --serif: "Caudex", Georgia, serif;
   --script: "Cedarville Cursive", cursive;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* System monospace (SF Mono on Apple) used for job titles and the landing footer. */
+  --system-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --page-gutter: clamp(1.5rem, 4.5vw, 4rem);
   --text-description-large: clamp(1.65rem, 4.75vw, 3.9rem);
   --text-description-medium: clamp(1.45rem, 3.2vw, 2.3rem);
@@ -35,7 +37,7 @@ a { color: inherit; text-underline-offset: 0.28em; }
 h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-height: 0.9; }
 .landing-footer { position: absolute; z-index: 4; right: var(--page-gutter); bottom: calc(clamp(1.5rem, 4vw, 3.5rem) + 1.25rem + 4px); left: var(--page-gutter); display: flex; align-items: center; justify-content: space-between; gap: clamp(0.5rem, 5vw, 4rem); padding-top: 0.75rem; padding-right: 0.6rem; border-top: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); }
 .landing-footer::before { position: absolute; top: 0; right: 0; left: -0.6rem; height: 2px; background: var(--ink); content: ""; }
-.landing-footer p, .landing-footer a { flex: 0 1 auto; margin: 0; white-space: nowrap; }
+.landing-footer p, .landing-footer a { font-family: var(--system-mono); flex: 0 1 auto; margin: 0; white-space: nowrap; }
 .landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .landing-footer .contact-trigger { display: inline; width: auto; margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; cursor: pointer; }
@@ -54,7 +56,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .job-status.current { display: flex; align-items: center; padding: 0; background: transparent; color: var(--ink); }
 .job-card h3 { align-self: start; max-width: none; margin: 0; color: #303030; font-family: var(--serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 400; line-height: 1; }
 .job-card .job-status:not(.current) ~ h3 { color: #303030; font-weight: 400; }
-.job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; line-height: 1.35; }
+.job-card .job-title { max-width: none; margin: 0; color: #090909; font-family: var(--system-mono); font-size: 0.8rem; line-height: 1.35; }
 .current-card .job-status, .current-card h3, .current-card .job-title { color: #fff; }
 .recognition { max-width: none; margin: 3rem 0 0; }
 .resume-link { margin: 1.25rem 0 0; }
@@ -120,8 +122,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   /* Sit the L (and its signature) higher, just under the nav, per mobile mock. */
   .mark { bottom: 18%; }
   .signature { bottom: 22%; }
-  /* Footer text shrinks on very narrow phones so both labels stay inside the guide. */
-  .landing-footer { gap: 1rem; padding-right: 0; font-size: min(0.85rem, 3.85vw); }
+  /* Footer text shrinks on narrow phones so both mono labels (37 chars at ~0.6em + 1rem gap) stay inside the guide. */
+  .landing-footer { gap: 1rem; padding-right: 0; font-size: min(0.85rem, calc((100vw - 2 * var(--page-gutter) - 1rem) / 22.6)); }
   .landing-footer::before { left: 0; }
   .landing-footer p:last-child { display: none; }
   .job-grid { width: 100%; }
