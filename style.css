@@ -38,7 +38,6 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .landing-footer { position: absolute; z-index: 4; right: var(--page-gutter); bottom: calc(clamp(1.5rem, 4vw, 3.5rem) + 1.25rem + 4px); left: var(--page-gutter); display: flex; align-items: center; justify-content: space-between; gap: clamp(0.5rem, 5vw, 4rem); padding-top: 0.75rem; padding-right: 0.6rem; border-top: 0; font-size: clamp(0.85rem, 1.5vw, 1.15rem); }
 .landing-footer::before { position: absolute; top: 0; right: 0; left: -0.6rem; height: 2px; background: var(--ink); content: ""; }
 .landing-footer p, .landing-footer a { font-family: var(--system-mono); flex: 0 1 auto; margin: 0; white-space: nowrap; }
-.landing-footer p:first-child, .landing-footer p:nth-child(2) { font-weight: 700; }
 .landing-footer a { text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; }
 .landing-footer .contact-trigger { display: inline; width: auto; margin: 0; padding: 0; background: none; border: 0; color: inherit; font: inherit; text-decoration-line: underline; text-decoration-style: dotted; text-decoration-thickness: 1px; text-underline-offset: 0.28em; cursor: pointer; }
 .landing-footer .contact-trigger:hover, .landing-footer .contact-trigger:focus-visible { color: #ff5fc4; text-decoration-color: #ff5fc4; }
