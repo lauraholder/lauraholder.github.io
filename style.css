@@ -48,7 +48,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .experience h2, .experience .currently { max-width: none; margin: 0 0 3rem; font-weight: 400; }
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
-.experience { padding: 2rem var(--page-gutter) 5rem; background: var(--acid); }
+.experience { padding: 2rem var(--page-gutter) 3rem; background: var(--acid); }
 /* Cards inset to ~78% of the viewport and centered (per desktop mock); on phones this lines up with the indented text column. */
 .job-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 78vw; max-width: 100%; margin-inline: auto; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
