@@ -49,6 +49,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .description-large { font-size: var(--text-description-large); line-height: 1.08; }
 .description-medium { font-size: var(--text-description-medium); line-height: 1.35; }
 .experience { padding: 2rem var(--page-gutter) 3rem; background: var(--acid); }
+.experience-label { margin: 0 0 1rem; }
 /* Cards inset to ~78% of the viewport and centered (per desktop mock); on phones this lines up with the indented text column. */
 .job-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; width: 78vw; max-width: 100%; margin-inline: auto; }
 .job-card { display: grid; grid-template-rows: auto 1fr auto; aspect-ratio: 1; min-height: 0; padding: 1.5rem; background: #fff; }
@@ -83,7 +84,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
 .contact-status { margin: 0; font-size: 0.9rem; }
 
 .portfolio { padding: 0 var(--page-gutter) 7rem; background: var(--acid); }
-.portfolio-list { display: grid; gap: 1.4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.portfolio-list { display: grid; gap: 1.4rem; margin: 0; padding: 0; list-style: none; }
 .portfolio-list li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 1rem; row-gap: .2rem; }
 /* Drawn underline: 1px dots with 2px gaps (native dotted can't be spaced). 1.22em = Caudex baseline (.92em) + former .3em offset; raised 4px. */
 .portfolio-list a { display: inline-block; padding-bottom: .1em; margin-bottom: -.1em; font-size: var(--text-description-medium); line-height: 1.15; text-decoration: none; background: linear-gradient(to right, currentColor 1px, transparent 1px) 0 calc(1.22em - 4px) / 3px 1px repeat-x; }
@@ -98,11 +99,13 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .mark { width: 100vw; left: 47%; bottom: 9%; transform: translateX(-47%); }
   .signature { left: 56%; bottom: 16%; }
   .job-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Label sits on the left edge of the centered 78vw card grid: (100vw - 2 gutters - 78vw) / 2 = 11vw - gutter. */
+  .experience-label { margin-left: calc(11vw - var(--page-gutter)); }
 }
 
 /* Tablet: indent Select work (label + links) to the left job card's text: centered 78vw grid (11vw inset) + 1.5rem card padding. */
 @media (min-width: 600px) and (max-width: 899px) {
-  .portfolio > .eyebrow, .portfolio-list { margin-left: calc(11vw + 1.5rem - var(--page-gutter)); }
+  .portfolio-list { margin-left: calc(11vw + 1.5rem - var(--page-gutter)); }
   .recognition, .resume-link { margin-inline: calc(11vw + 1.5rem - var(--page-gutter)); }
 }
 
@@ -115,8 +118,7 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
      Same width, centering, gap and inner padding as .job-grid/.job-card so each column's text lines up with the card text above. */
   .portfolio-list { width: 78vw; max-width: 100%; margin-inline: auto; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 1.5rem; }
   .portfolio-list li { padding-inline: 3rem; }
-  /* Label and recognition text share the job cards' inner text margins: left card text to right card text. */
-  .portfolio > .eyebrow { margin-left: calc(11vw + 3rem - var(--page-gutter)); }
+  /* Recognition text shares the job cards' inner text margins: left card text to right card text. */
   .recognition, .resume-link { margin-inline: calc(11vw + 3rem - var(--page-gutter)); }
   .job-card { padding: 3rem; }
   .job-card .job-title { font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.45; }
@@ -131,7 +133,8 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .landing { min-height: min(100svh, 184vw); }
   /* Sit the L (and its signature) higher, just under the nav, per mobile mock. */
   .mark { bottom: 18%; }
-  .signature { bottom: 22%; }
+  /* Signature matches the desktop (1440px) proportions to the L: font is 9.5% of the L's width (124vw), and the box sits 59.5% across the L and 13.3vw above its bottom edge (18% = the L's bottom). */
+  .signature { left: 62.5%; bottom: calc(18% + 13.3vw); font-size: 11.8vw; }
   /* Footer text shrinks on narrow phones so both mono labels (37 chars at ~0.6em + 1rem gap) stay inside the guide. */
   .landing-footer { gap: 1rem; padding-right: 0; font-size: min(0.85rem, calc((100vw - 2 * var(--page-gutter) - 1rem) / 22.6)); }
   .landing-footer::before { left: 0; }
