@@ -145,7 +145,20 @@ h1 { margin: 0; font-size: clamp(2.8rem, 11vw, 7rem); font-weight: 400; line-hei
   .job-card { padding: 1.7rem; }
   .job-card h3 { font-size: 2.25rem; }
   .about-placeholder { min-height: 0; }
+  /* Job cards become a swipeable stack (see index.html script): every card shares one grid cell, each tilted by its own --r so the pile reads as more than one card. Clip so flung cards don't add horizontal scroll. */
+  .experience { overflow-x: clip; }
+  .job-grid.is-deck { gap: 0; margin-block: 1.5rem 0; touch-action: pan-y; user-select: none; -webkit-user-select: none; outline: none; }
+  .job-grid.is-deck .job-card { grid-area: 1 / 1; z-index: calc(10 - var(--depth, 0)); transform: translate3d(var(--x, 0px), 0, 0) rotate(var(--r, 0deg)); transition: transform 420ms cubic-bezier(.2, .8, .2, 1), opacity 240ms ease; box-shadow: 0 0 0 1px rgb(9 9 9 / 8%), 0 14px 28px -20px rgb(9 9 9 / 55%); cursor: grab; will-change: transform; }
+  .job-grid.is-deck .job-card.is-dragging { transition: none; cursor: grabbing; }
+  .job-grid.is-deck .job-card.is-leaving { z-index: 20; transition-duration: 320ms; }
+  .job-grid.is-deck .job-card.is-buried { opacity: 0; }
+  .job-grid.is-deck .job-card.no-transition { transition: none; }
+  .job-grid.is-deck:focus-visible .job-card.is-top { outline: 2px solid #ff5fc4; outline-offset: 4px; }
+  .deck-count { margin: 1.5rem 0 0; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-align: center; }
   .description-large, .description-medium { font-size: 1.65rem; line-height: 1.15; }
 }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .job-grid.is-deck .job-card { transition-duration: 1ms; }
+}

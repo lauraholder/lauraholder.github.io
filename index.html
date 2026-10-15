@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Cedarville+Cursive&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=landing-vector-v42" />
+    <link rel="stylesheet" href="style.css?v=landing-vector-v43" />
   </head>
   <body>
     <main class="landing" id="home">
@@ -193,6 +193,134 @@
           nav.classList.toggle('is-scrolling-up', currentScrollY > 8 && currentScrollY < lastScrollY);
           lastScrollY = currentScrollY;
         }, { passive: true });
+
+        // Phones: job cards become a swipeable stack. Every card sits in the same grid cell,
+        // each with its own tilt so the stack reads as a pile; swiping the top card sends it
+        // to the back, so the deck loops forever. Desktop/tablet keep the regular grid.
+        const deck = document.querySelector('.job-grid');
+        const cards = Array.from(deck.querySelectorAll('.job-card'));
+        const tilts = [-3, 2.5, -1.5, 3.5, -2.5, 2];
+        const VISIBLE_DEPTH = 4;
+        const deckQuery = window.matchMedia('(max-width: 599px)');
+        const count = document.createElement('p');
+        count.className = 'deck-count';
+        count.setAttribute('aria-live', 'polite');
+        deck.after(count);
+
+        let order = cards.map((_, i) => i);
+        let drag = null;
+
+        const layoutDeck = () => {
+          order.forEach((cardIndex, depth) => {
+            const card = cards[cardIndex];
+            if (card.classList.contains('is-leaving')) return;
+            card.style.setProperty('--depth', depth);
+            card.style.setProperty('--x', '0px');
+            card.style.setProperty('--r', depth === 0 ? '0deg' : `${tilts[cardIndex % tilts.length]}deg`);
+            card.classList.toggle('is-top', depth === 0);
+            card.classList.toggle('is-buried', depth >= VISIBLE_DEPTH);
+            card.toggleAttribute('inert', depth !== 0);
+          });
+          count.textContent = `${String(order[0] + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')} · Swipe`;
+        };
+
+        const showNextCard = (direction = 1) => {
+          const card = cards[order[0]];
+          order = [...order.slice(1), order[0]];
+          card.classList.add('is-leaving');
+          card.style.setProperty('--x', `${direction * window.innerWidth * 1.2}px`);
+          card.style.setProperty('--r', `${direction * 18}deg`);
+          layoutDeck();
+          // Once it has flown off, drop it silently to the bottom of the stack.
+          setTimeout(() => {
+            card.classList.add('no-transition');
+            card.classList.remove('is-leaving');
+            layoutDeck();
+            card.offsetWidth;
+            card.classList.remove('no-transition');
+          }, 320);
+        };
+
+        const showPreviousCard = () => {
+          const card = cards[order[order.length - 1]];
+          order = [order[order.length - 1], ...order.slice(0, -1)];
+          card.classList.add('no-transition', 'is-leaving');
+          card.style.setProperty('--x', `${-window.innerWidth * 1.2}px`);
+          card.style.setProperty('--r', '-18deg');
+          card.offsetWidth;
+          card.classList.remove('no-transition', 'is-leaving');
+          layoutDeck();
+        };
+
+        const endDrag = (event, cancelled) => {
+          if (!drag || event.pointerId !== drag.id) return;
+          const card = cards[order[0]];
+          const dx = event.clientX - drag.startX;
+          const elapsed = Math.max(event.timeStamp - drag.lastT, 1);
+          const velocity = (event.clientX - drag.lastX) / elapsed;
+          card.classList.remove('is-dragging');
+          drag = null;
+          const flung = Math.abs(velocity) > 0.45 && Math.abs(dx) > 20;
+          if (!cancelled && (Math.abs(dx) > card.offsetWidth * 0.28 || flung)) {
+            showNextCard(Math.sign(dx) || 1);
+          } else {
+            layoutDeck();
+          }
+        };
+
+        deck.addEventListener('pointerdown', (event) => {
+          if (!deck.classList.contains('is-deck') || !event.isPrimary) return;
+          const card = cards[order[0]];
+          if (!card.contains(event.target)) return;
+          drag = { id: event.pointerId, startX: event.clientX, lastX: event.clientX, lastT: event.timeStamp };
+          card.setPointerCapture(event.pointerId);
+          card.classList.add('is-dragging');
+        });
+
+        deck.addEventListener('pointermove', (event) => {
+          if (!drag || event.pointerId !== drag.id) return;
+          const card = cards[order[0]];
+          const dx = event.clientX - drag.startX;
+          // Remember the previous sample so release velocity reflects the last bit of motion.
+          if (event.timeStamp - drag.lastT > 32) { drag.lastX = event.clientX; drag.lastT = event.timeStamp; }
+          card.style.setProperty('--x', `${dx}px`);
+          card.style.setProperty('--r', `${dx * 0.06}deg`);
+        });
+
+        deck.addEventListener('pointerup', (event) => endDrag(event, false));
+        deck.addEventListener('pointercancel', (event) => endDrag(event, true));
+
+        deck.addEventListener('keydown', (event) => {
+          if (!deck.classList.contains('is-deck')) return;
+          if (event.key === 'ArrowRight') { event.preventDefault(); showNextCard(1); }
+          if (event.key === 'ArrowLeft') { event.preventDefault(); showPreviousCard(); }
+        });
+
+        const applyDeckMode = () => {
+          const isDeck = deckQuery.matches;
+          deck.classList.toggle('is-deck', isDeck);
+          count.hidden = !isDeck;
+          if (isDeck) {
+            deck.tabIndex = 0;
+            deck.setAttribute('role', 'region');
+            deck.setAttribute('aria-roledescription', 'card stack');
+            deck.setAttribute('aria-label', 'Experience — swipe or use arrow keys to see the next role');
+            layoutDeck();
+          } else {
+            deck.removeAttribute('tabindex');
+            deck.removeAttribute('role');
+            deck.removeAttribute('aria-roledescription');
+            deck.removeAttribute('aria-label');
+            cards.forEach((card) => {
+              card.removeAttribute('style');
+              card.removeAttribute('inert');
+              card.classList.remove('is-top', 'is-buried', 'is-leaving', 'is-dragging', 'no-transition');
+            });
+          }
+        };
+
+        deckQuery.addEventListener('change', applyDeckMode);
+        applyDeckMode();
 
         const contactModal = document.getElementById('contact-modal');
         const contactOpenBtn = document.querySelector('[data-contact-open]');
